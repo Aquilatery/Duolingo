@@ -5,6 +5,14 @@ using SIOMS = System.IO.MemoryStream;
 using SLE = System.Linq.Enumerable;
 using STE = System.Text.Encoding;
 using STRER = System.Text.RegularExpressions.Regex;
+using DSA = Duolingo.Struct.Account;
+using DSL = Duolingo.Struct.Localization;
+using DHEC = Duolingo.Helper.Exception.Check;
+using DVC = Duolingo.Value.Constant;
+
+
+using System.Net.Http;
+using System;
 
 #endregion
 
@@ -27,16 +35,26 @@ namespace Duolingo
     /// </summary>
     internal class Core
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Text"></param>
-        /// <returns></returns>
-        public static bool Empty(string Text = "Null")
-        {
-            return Text == "Null";
-        }
+
     }
 
     #endregion
+
+    #region Duolingo
+
+    public class Duolingo
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Account"></param>
+        /// <param name="Localization"></param>
+        public Duolingo(DSL Localization, DSA Account)
+        {
+            DHEC.Conrol(Localization);
+            DHEC.Conrol(Account);
+        }
+
+        #endregion
+    }
 }

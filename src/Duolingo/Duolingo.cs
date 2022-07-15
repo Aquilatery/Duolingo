@@ -1,6 +1,10 @@
 ﻿#region Imports
 
-
+using SC = System.Convert;
+using SIOMS = System.IO.MemoryStream;
+using SLE = System.Linq.Enumerable;
+using STE = System.Text.Encoding;
+using STRER = System.Text.RegularExpressions.Regex;
 
 #endregion
 
@@ -18,12 +22,20 @@ namespace Duolingo
 {
     #region Core
 
-    public class Duolingo
+    /// <summary>
+    /// 
+    /// </summary>
+    internal class Core
     {
         /// <summary>
         /// 
         /// </summary>
-        public const string Author = "Taiizor";
+        /// <param name="Text"></param>
+        /// <returns></returns>
+        public static bool Empty(string Text = "Null")
+        {
+            return Text == "Null";
+        }
     }
 
     #endregion

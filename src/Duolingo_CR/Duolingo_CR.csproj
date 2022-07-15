@@ -22,12 +22,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Duolingo\Duolingo.csproj" />
   </ItemGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU' AND '$(TargetFramework)' != 'net48'">
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
-  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU' AND '$(TargetFramework)' == 'net48'">
-    <Reference Include="System.Resources.Extensions" />
-  </ItemGroup>
   <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU' AND '$(TargetFramework)' == 'net6.0-windows'">
     <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
   </ItemGroup>

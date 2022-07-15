@@ -18,21 +18,7 @@ jobs:
             GitHub
         ]
         solution: [
-            src,
-            sample/ReaLTaiizor.Defender,
-            sample/ReaLTaiizor.Instagram,
-            sample/ReaLTaiizor.Kaspersky,
-            sample/ReaLTaiizor.Login,
-            sample/ReaLTaiizor.Payment,
-            sample/ReaLTaiizor.Player,
-            sample/ReaLTaiizor.Rufus,
-            sample/ReaLTaiizor.Splash,
-            sample/ReaLTaiizor.XAMPP,
-            ready/ReaLTaiizor.AppLocker,
-            ready/ReaLTaiizor.Stopwatch,
-            ready/ReaLTaiizor.Translate,
-            demo/ReaLTaiizor.UI,
-            demo/ReaLTaiizor.UX
+            src
         ]
 
     steps:
@@ -43,11 +29,11 @@ jobs:
       with:
         dotnet-version: 7.0.100-preview.2.22153.17
 
-    - name: Restore the ReaLTaiizor
+    - name: Restore the Duolingo
       run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }}
 
-    - name: Build the ReaLTaiizor
+    - name: Build the Duolingo
       run: dotnet build ${{ matrix.solution }} -c ${{ matrix.configuration }} --no-restore /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0649,CA1416,NU5104,NETSDK1138,SYSLIB0003
 
-    - name: Test the ReaLTaiizor
+    - name: Test the Duolingo
       run: dotnet test ${{ matrix.solution }} -c ${{ matrix.configuration }} --no-build --verbosity normal

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Duolingo_CR
@@ -11,12 +12,21 @@ namespace Duolingo_CR
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
+            try
+            {
+                Application.EnableVisualStyles();
 #if NETCOREAPP3_1 || NET5_0 || NET6_0 || NET7_0
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+                CultureInfo cultureInfo = new(CultureInfo.CurrentCulture.TextInfo.CultureName);
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.CurrentCulture = cultureInfo;
+                Application.Run(new Form1());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\n\n" + ex.StackTrace);
+            }
         }
     }
 }

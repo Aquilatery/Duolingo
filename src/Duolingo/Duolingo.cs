@@ -10,7 +10,7 @@
 //     Website: www.Vegalya.com
 //     Created: 15.Jul.2022
 //     Changed: 15.Jul.2022
-//     Version: 1.0.0.1
+//     Version: 1.0.0.2
 //
 // |---------DO-NOT-REMOVE---------|
 

@@ -13,15 +13,20 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		GitHub|Any CPU = GitHub|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5EA30799-0805-43D6-AB35-316DE3389DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5EA30799-0805-43D6-AB35-316DE3389DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA30799-0805-43D6-AB35-316DE3389DD8}.GitHub|Any CPU.ActiveCfg = GitHub|Any CPU
+		{5EA30799-0805-43D6-AB35-316DE3389DD8}.GitHub|Any CPU.Build.0 = GitHub|Any CPU
 		{5EA30799-0805-43D6-AB35-316DE3389DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EA30799-0805-43D6-AB35-316DE3389DD8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7FF56FE1-296C-470D-8D9E-E5E702F82261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7FF56FE1-296C-470D-8D9E-E5E702F82261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FF56FE1-296C-470D-8D9E-E5E702F82261}.GitHub|Any CPU.ActiveCfg = GitHub|Any CPU
+		{7FF56FE1-296C-470D-8D9E-E5E702F82261}.GitHub|Any CPU.Build.0 = GitHub|Any CPU
 		{7FF56FE1-296C-470D-8D9E-E5E702F82261}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FF56FE1-296C-470D-8D9E-E5E702F82261}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

@@ -44,15 +44,15 @@ Changes are detailed at https://github.com/Taiizor/Duolingo/releases</PackageRel
     <NoWarn>1587,1591</NoWarn>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU' OR '$(Configuration)|$(Platform)'=='GitHub|AnyCPU' OR '$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU' OR '$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' OR '$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU'">
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='GitHub|AnyCPU' AND '$(TargetFramework)' == 'net6.0'">
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' AND '$(TargetFramework)' == 'net6.0'">
     <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
   </ItemGroup>
   

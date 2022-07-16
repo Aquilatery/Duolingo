@@ -27,6 +27,8 @@ namespace Duolingo.Localization.EN
             { DELC.Empty_Password, "Password cannot be empty!" },
             { DELC.Space_Username, "Username cannot contain spaces!" },
             { DELC.Space_Email, "Email cannot contain spaces!" },
+            { DELC.Not_Valid_Email, "Email format is incorrect!" },
+            { DELC.Only_Email_Username, "Just enter your email or username!" },
         };
 
         #endregion

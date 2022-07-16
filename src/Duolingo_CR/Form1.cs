@@ -1,5 +1,6 @@
 ﻿using Duolingo.Enum.Language;
 using Duolingo.Struct;
+using Duolingo;
 using System.Net.Http;
 using System.Windows.Forms;
 using Duolingo.Enum.Localization;
@@ -12,28 +13,28 @@ namespace Duolingo_CR
         {
             InitializeComponent();
 
-            Localization localization = new()
+            Localization Localization = new()
             {
                 Language = Languages.TR,
-                Messages = new()
-                {
-                    { Code.Empty, "Пустой" },
+                //Messages = new()
+                //{
+                //    { Code.Empty, "x" },
 
-                    { Code.Empty_Email_Username, "Электронная почта или имя пользователя не могут быть пустыми!" },
-                    { Code.Empty_Password, "Пароль не может быть пустым!" },
-                    { Code.Space_Username, "Имя пользователя не может содержать пробелы!" },
-                    { Code.Space_Email, "Электронная почта не может содержать пробелов!" },
-                }
+                //    { Code.Empty_Email_Username, "xx!" },
+                //    { Code.Empty_Password, "xxx!" },
+                //    { Code.Space_Username, "xxxx!" },
+                //    { Code.Space_Email, "xxxxx!" },
+                //}
             };
 
-            Account account = new()
+            Account Account = new()
             {
-                Email = "",
+                Email = "alyaxvega@gmail.com",
                 Username = "AlyaVega",
                 Password = ""
             };
 
-            Duolingo.Duolingo duolingo = new(localization, account);
+            Duolingo.Duolingo duolingo = new(Localization, Account);
         }
     }
 }

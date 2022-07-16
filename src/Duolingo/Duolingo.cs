@@ -11,6 +11,8 @@ using SIOMS = System.IO.MemoryStream;
 using SLE = System.Linq.Enumerable;
 using STE = System.Text.Encoding;
 using STRER = System.Text.RegularExpressions.Regex;
+using DELC = Duolingo.Enum.Localization.Code;
+using DELL = Duolingo.Enum.Language.Languages;
 
 #endregion
 
@@ -42,6 +44,16 @@ namespace Duolingo
 
     public class Duolingo
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Account"></param>
+        public Duolingo(DSA Account)
+        {
+            DHEC.Conrol(new DSL() { Language = DVC.DefaultLanguage });
+            DHEC.Conrol(Account);
+        }
+
         /// <summary>
         /// 
         /// </summary>

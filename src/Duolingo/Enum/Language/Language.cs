@@ -20,9 +20,13 @@
         /// </summary>
         ES,
         /// <summary>
+        /// Русский
+        /// </summary>
+        RU,
+        /// <summary>
         /// Custom
         /// </summary>
-        CUSTOM
+        CM
     }
 
     #endregion

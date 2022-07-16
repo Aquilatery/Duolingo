@@ -27,6 +27,8 @@ namespace Duolingo.Localization.TR
             { DELC.Empty_Password, "Şifre boş olamaz!" },
             { DELC.Space_Username, "Kullanıcı adı boşluk karakteri içeremez!" },
             { DELC.Space_Email, "E-posta boşluk karakteri içeremez!" },
+            { DELC.Not_Valid_Email, "E-posta formatı hatalı!" },
+            { DELC.Only_Email_Username, "Sadece e-posta veya kullanıcı adını girin!" },
         };
 
         #endregion

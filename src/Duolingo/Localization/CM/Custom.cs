@@ -5,7 +5,7 @@ using SCG = System.Collections.Generic;
 
 #endregion
 
-namespace Duolingo.Localization.CUSTOM
+namespace Duolingo.Localization.CM
 {
     #region Custom
 
@@ -20,8 +20,6 @@ namespace Duolingo.Localization.CUSTOM
         /// 
         /// </summary>
         public static SCG.Dictionary<DELC, string> Messages { get; set; } = new();
-        //default dil belirle. custom dil seçilmiş ve mesaj set edilmemişse default dilin mesajları gösterilsin.
-        //veya custom dil seçilemesin fakat custom mesaj set edilmişse oto custom dil seçilmiş olsun.
 
         #endregion
     }

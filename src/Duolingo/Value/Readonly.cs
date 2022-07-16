@@ -28,6 +28,28 @@ namespace Duolingo.Value
         /// </summary>
         public static readonly SU baseUri = new("https://www.duolingo.com/");
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly SCG.Dictionary<DELL, string> NotSetCode = new()
+        {
+            { DELL.TR, "Seçilen kodun mesajı ayarlanmadı." },
+            { DELL.EN, "The message of the selected code is not set." },
+            { DELL.ES, "El mensaje del código seleccionado no está configurado." },
+            { DELL.RU, "Сообщение о выбранном коде не установлено." }
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly SCG.Dictionary<DELL, string> NotSetMessage = new()
+        {
+            { DELL.TR, "Türkçe dilinin mesajları ayarlanmadı." },
+            { DELL.EN, "Messages of the English language are not set." },
+            { DELL.ES, "Los mensajes del idioma Español no están configurados." },
+            { DELL.RU, "Сообщения Pусского языка не устанавливаются." }
+        };
+
         #endregion
     }
 

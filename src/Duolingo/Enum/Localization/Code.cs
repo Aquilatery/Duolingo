@@ -16,6 +16,8 @@
         Empty_Password,
         Space_Username,
         Space_Email,
+        Not_Valid_Email,
+        Only_Email_Username,
 
     }
 

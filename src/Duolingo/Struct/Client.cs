@@ -1,6 +1,11 @@
 ﻿#region Imports
 
+#if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
+
 using DESPT = Duolingo.Enum.Security.ProtocolType;
+
+#endif
+
 using SRISLK = System.Runtime.InteropServices.LayoutKind;
 using SRISSLA = System.Runtime.InteropServices.StructLayoutAttribute;
 using STE = System.Text.Encoding;
@@ -17,10 +22,14 @@ namespace Duolingo.Struct
     [SRISSLA(SRISLK.Sequential)]
     public struct Client
     {
+#if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
+
         /// <summary>
         /// 
         /// </summary>
         public DESPT ProtocolType;
+
+#endif
 
         /// <summary>
         /// 

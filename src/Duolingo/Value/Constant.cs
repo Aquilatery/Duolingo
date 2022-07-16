@@ -1,8 +1,13 @@
 ﻿#region Imports
 
+#if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
+
+using DESPT = Duolingo.Enum.Security.ProtocolType;
+
+#endif
+
 using DELC = Duolingo.Enum.Localization.Code;
 using DELL = Duolingo.Enum.Language.Languages;
-using DESPT = Duolingo.Enum.Security.ProtocolType;
 using DLENE = Duolingo.Localization.EN.English;
 using DLESS = Duolingo.Localization.ES.Spanish;
 using DLTRT = Duolingo.Localization.TR.Turkish;
@@ -29,10 +34,14 @@ namespace Duolingo.Value
         /// </summary>
         public const DELL DefaultLanguage = DELL.EN;
 
+#if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
+
         /// <summary>
         /// 
         /// </summary>
         public const DESPT DefaultProtocolType = DESPT.TLS12;
+
+#endif
 
         /// <summary>
         /// 

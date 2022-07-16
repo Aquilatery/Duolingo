@@ -1,7 +1,12 @@
 ﻿#region Imports
 
-using DELL = Duolingo.Enum.Language.Languages;
+#if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
+
 using DESPT = Duolingo.Enum.Security.ProtocolType;
+
+#endif
+
+using DELL = Duolingo.Enum.Language.Languages;
 using DMLD = Duolingo.Model.LoginData;
 using DMUR = Duolingo.Model.User.Root;
 using DSA = Duolingo.Struct.Account;
@@ -27,10 +32,14 @@ namespace Duolingo.Value
         /// </summary>
         public static DELL SelectLanguage = DVC.DefaultLanguage;
 
+#if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
+
         /// <summary>
         /// 
         /// </summary>
         public static DESPT ProtocolType = DVC.DefaultProtocolType;
+
+#endif
 
         /// <summary>
         /// 

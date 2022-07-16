@@ -8,23 +8,27 @@
     public enum Languages
     {
         /// <summary>
-        /// Türkçe
+        /// Türkçe.
         /// </summary>
         TR,
+
         /// <summary>
-        /// English
+        /// English.
         /// </summary>
         EN,
+
         /// <summary>
-        /// Español
+        /// Español.
         /// </summary>
         ES,
+
         /// <summary>
-        /// Русский
+        /// Русский.
         /// </summary>
         RU,
+
         /// <summary>
-        /// Custom
+        /// Custom.
         /// </summary>
         CM
     }

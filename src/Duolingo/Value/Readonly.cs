@@ -59,7 +59,11 @@ namespace Duolingo.Value
         /// </summary>
         public static readonly DSC DefaultClient = new()
         {
+#if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
+
             ProtocolType = DVC.DefaultProtocolType,
+
+#endif
             EncodingType = DefaultEncodingType
         };
 

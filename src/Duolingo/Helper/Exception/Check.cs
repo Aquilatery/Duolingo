@@ -95,7 +95,11 @@ namespace Duolingo.Helper.Exception
         /// </summary>
         public static bool Conrol(DSC Client)
         {
+#if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
+
             DVV.ProtocolType = Client.ProtocolType;
+
+#endif
 
             DVV.EncodingType = Client.EncodingType;
 

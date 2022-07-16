@@ -1,4 +1,6 @@
-﻿#region Imports
+﻿#if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
+
+#region Imports
 
 using DESPT = Duolingo.Enum.Security.ProtocolType;
 using SNSPT = System.Net.SecurityProtocolType;
@@ -13,6 +15,8 @@ namespace Duolingo.Helper.Security
     {
         public static SNSPT GetType(DESPT Type)
         {
+#if NET48 || NET5_0_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+
             return Type switch
             {
                 DESPT.TLS => SNSPT.Tls,
@@ -22,8 +26,24 @@ namespace Duolingo.Helper.Security
                 DESPT.TLS13 => SNSPT.Tls13,
                 _ => SNSPT.SystemDefault,
             };
+
+#else
+
+            return Type switch
+            {
+                DESPT.TLS => (SNSPT)192,
+                DESPT.SSL3 => (SNSPT)48,
+                DESPT.TLS11 => (SNSPT)768,
+                DESPT.TLS12 => (SNSPT)3072,
+                DESPT.TLS13 => (SNSPT)12288,
+                _ => (SNSPT)0,
+            };
+
+#endif
         }
     }
 
     #endregion
 }
+
+#endif

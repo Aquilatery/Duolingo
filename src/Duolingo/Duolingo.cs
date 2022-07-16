@@ -217,6 +217,9 @@ namespace Duolingo
 
     #region Duolingo
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class Duolingo
     {
         /// <summary>
@@ -437,7 +440,7 @@ namespace Duolingo
         /// <param name="LexemeID"></param>
         /// <param name="LanguageID"></param>
         /// <returns></returns>
-        public async STT.Task<DMLR> LexemeDataAsync(string LexemeID, string LanguageID = "en")
+        private async STT.Task<DMLR> LexemeDataAsync(string LexemeID, string LanguageID = "en")
         {
             return await Core.GetLexemeDataAsync(LexemeID, LanguageID);
         }
@@ -446,7 +449,7 @@ namespace Duolingo
         /// 
         /// </summary>
         /// <returns></returns>
-        public async STT.Task<DMVR> VocabularyAsync()
+        private async STT.Task<DMVR> VocabularyAsync()
         {
             return await Core.GetVocabularyAsync();
         }
@@ -462,7 +465,7 @@ namespace Duolingo
 
             Core.GetUserDataAsync(DVV.LoginData).GetAwaiter().GetResult();
         }
-
-        #endregion
     }
+
+    #endregion
 }

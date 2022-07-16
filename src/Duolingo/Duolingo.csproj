@@ -90,7 +90,6 @@ Changes are detailed at https://github.com/Taiizor/Duolingo/releases</PackageRel
 
   <ItemGroup>
     <Folder Include="Properties\" />
-    <Folder Include="Util\" />
   </ItemGroup>
 
 </Project>

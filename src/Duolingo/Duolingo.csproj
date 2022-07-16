@@ -19,13 +19,13 @@
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
     <Summary>Unofficial Duolingo API library in C#.</Summary>
     <Description>$(Summary)
-.NET Duolingo API Library - $(PackageId)</Description>
+.NET Cross-Platform Duolingo API Library - $(PackageId)</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Major changes have been made.
 Changes are detailed at https://github.com/Taiizor/Duolingo/releases</PackageReleaseNotes>
-    <PackageTags>Duolingo Taiizor Soferity Vegalya C# CSharp VBC VB VisualBasic DotNET .NET NET API Library</PackageTags>
+    <PackageTags>Duolingo Taiizor Soferity Vegalya C# CSharp VBC VB VisualBasic DotNET .NET NET Cross Platform API Library</PackageTags>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!--<DocumentationFile>..\$(PackageId)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(PackageId).xml</DocumentationFile>-->
     <PackageProjectUrl>https://github.com/Taiizor/Duolingo</PackageProjectUrl>

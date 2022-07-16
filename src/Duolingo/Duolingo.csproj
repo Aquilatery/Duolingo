@@ -17,7 +17,7 @@
     <PackageId>Duolingo</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
-    <Summary>Unofficial Duolingo API library in C#.</Summary>
+    <Summary>Best with fast and convenient functions.</Summary>
     <Description>$(Summary)
 .NET Cross-Platform Duolingo API Library - $(PackageId)</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>

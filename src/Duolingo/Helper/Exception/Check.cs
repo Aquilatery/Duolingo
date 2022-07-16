@@ -103,7 +103,10 @@ namespace Duolingo.Helper.Exception
 
             DVV.EncodingType = Client.EncodingType;
 
-            _ = new DHIPC();
+            if (DVV.Client == null)
+            {
+                DVV.Client = new DHIPC();
+            }
 
             return true;
         }

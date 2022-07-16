@@ -6,6 +6,7 @@ using DESPT = Duolingo.Enum.Security.ProtocolType;
 
 #endif
 
+using DHIPC = Duolingo.Helper.InternetProtocol.Client;
 using DELL = Duolingo.Enum.Language.Languages;
 using DMLD = Duolingo.Model.LoginData;
 using DMUR = Duolingo.Model.User.Root;
@@ -26,6 +27,11 @@ namespace Duolingo.Value
     internal class Variable
     {
         #region Variable
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DHIPC Client = null;
 
         /// <summary>
         /// 

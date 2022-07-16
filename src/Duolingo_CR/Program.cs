@@ -1,11 +1,22 @@
-﻿using System;
+﻿#region Imports
+
+using System;
 using System.Globalization;
 using System.Windows.Forms;
 
+#endregion
+
 namespace Duolingo_CR
 {
+    #region Program
+
+    /// <summary>
+    /// 
+    /// </summary>
     internal static class Program
     {
+        #region Main
+
         /// <summary>
         /// Uygulamanın ana girdi noktası.
         /// </summary>
@@ -21,12 +32,16 @@ namespace Duolingo_CR
                 CultureInfo cultureInfo = new(CultureInfo.CurrentCulture.TextInfo.CultureName);
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.CurrentCulture = cultureInfo;
-                Application.Run(new Form1());
+                Application.Run(new Catcher());
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + "\n\n" + ex.StackTrace);
             }
         }
+
+        #endregion
     }
+
+    #endregion
 }

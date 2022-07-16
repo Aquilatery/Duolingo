@@ -1,7 +1,8 @@
 ﻿using Duolingo.Enum.Language;
-using System.Windows.Forms;
-using System.Net.Http;
 using Duolingo.Struct;
+using System.Net.Http;
+using System.Windows.Forms;
+using Duolingo.Enum.Localization;
 
 namespace Duolingo_CR
 {
@@ -14,13 +15,21 @@ namespace Duolingo_CR
             Localization localization = new()
             {
                 Language = Languages.TR,
-                Messages = null
+                Messages = new()
+                {
+                    { Code.Empty, "Пустой" },
+
+                    { Code.Empty_Email_Username, "Электронная почта или имя пользователя не могут быть пустыми!" },
+                    { Code.Empty_Password, "Пароль не может быть пустым!" },
+                    { Code.Space_Username, "Имя пользователя не может содержать пробелы!" },
+                    { Code.Space_Email, "Электронная почта не может содержать пробелов!" },
+                }
             };
 
             Account account = new()
             {
                 Email = "",
-                Username = "",
+                Username = "AlyaVega",
                 Password = ""
             };
 

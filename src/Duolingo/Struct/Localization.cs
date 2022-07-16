@@ -1,10 +1,10 @@
 ﻿#region Imports
 
-using SRISLK = System.Runtime.InteropServices.LayoutKind;
-using SRISSLA = System.Runtime.InteropServices.StructLayoutAttribute;
+using DELC = Duolingo.Enum.Localization.Code;
 using DELL = Duolingo.Enum.Language.Languages;
 using SCG = System.Collections.Generic;
-using DELC = Duolingo.Enum.Localization.Code;
+using SRISLK = System.Runtime.InteropServices.LayoutKind;
+using SRISSLA = System.Runtime.InteropServices.StructLayoutAttribute;
 
 #endregion
 

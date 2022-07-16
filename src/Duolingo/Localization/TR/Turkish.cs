@@ -23,10 +23,10 @@ namespace Duolingo.Localization.TR
         {
             { DELC.Empty, "Boş" },
 
-            { DELC.Empty_Email_Username, "Email veya Username boş olamaz!" },
-            { DELC.Empty_Password, "Password boş olamaz!" },
-            { DELC.Space_Username, "Username boşluk karakteri içeremez!" },
-            { DELC.Space_Email, "Email boşluk karakteri içeremez!" },
+            { DELC.Empty_Email_Username, "E-posta veya kullanıcı adı boş olamaz!" },
+            { DELC.Empty_Password, "Şifre boş olamaz!" },
+            { DELC.Space_Username, "Kullanıcı adı boşluk karakteri içeremez!" },
+            { DELC.Space_Email, "E-posta boşluk karakteri içeremez!" },
         };
 
         #endregion

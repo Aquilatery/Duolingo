@@ -1,18 +1,16 @@
 ﻿#region Imports
 
+using System;
+using System.Net.Http;
+using DHEC = Duolingo.Helper.Exception.Check;
+using DSA = Duolingo.Struct.Account;
+using DSL = Duolingo.Struct.Localization;
+using DVC = Duolingo.Value.Constant;
 using SC = System.Convert;
 using SIOMS = System.IO.MemoryStream;
 using SLE = System.Linq.Enumerable;
 using STE = System.Text.Encoding;
 using STRER = System.Text.RegularExpressions.Regex;
-using DSA = Duolingo.Struct.Account;
-using DSL = Duolingo.Struct.Localization;
-using DHEC = Duolingo.Helper.Exception.Check;
-using DVC = Duolingo.Value.Constant;
-
-
-using System.Net.Http;
-using System;
 
 #endregion
 

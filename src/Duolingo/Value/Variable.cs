@@ -5,7 +5,7 @@ using DELL = Duolingo.Enum.Language.Languages;
 using DLENE = Duolingo.Localization.EN.English;
 using DLESS = Duolingo.Localization.ES.Spanish;
 using DLTRT = Duolingo.Localization.TR.Turkish;
-using DSA = Duolingo.Struct.Account;
+using DVC = Duolingo.Value.Constant;
 using SCG = System.Collections.Generic;
 using SE = System.Exception;
 using SU = System.Uri;
@@ -19,24 +19,14 @@ namespace Duolingo.Value
     /// <summary>
     /// 
     /// </summary>
-    internal class Constant
+    internal class Variable
     {
-        #region Constant
+        #region Variable
 
         /// <summary>
         /// 
         /// </summary>
-        public const DELL DefaultLanguage = DELL.EN;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public const string NotSetCode = "The message of the selected code is not set.";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public const string NotSetMessage = "The messages of the selected language are not set.";
+        public static DELL SelectLanguage = DVC.DefaultLanguage;
 
         #endregion
     }

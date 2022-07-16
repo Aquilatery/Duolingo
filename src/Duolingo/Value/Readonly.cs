@@ -19,24 +19,14 @@ namespace Duolingo.Value
     /// <summary>
     /// 
     /// </summary>
-    internal class Constant
+    internal class Readonly
     {
-        #region Constant
+        #region Readonly
 
         /// <summary>
         /// 
         /// </summary>
-        public const DELL DefaultLanguage = DELL.EN;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public const string NotSetCode = "The message of the selected code is not set.";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public const string NotSetMessage = "The messages of the selected language are not set.";
+        public static readonly SU baseUri = new("https://www.duolingo.com/");
 
         #endregion
     }

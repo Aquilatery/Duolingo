@@ -104,61 +104,61 @@ namespace Duolingo_CR
                 /// <summary>
                 /// 
                 /// </summary>
-                SWFMB.Show(DuoAPI.LoginData.UserId + " - " + DuoAPI.LoginData.Username);
+                SWFMB.Show(DuoAPI.LoginData.UserId + " - " + DuoAPI.LoginData.Username, "Result");
 
                 /// <summary>
                 /// 
                 /// </summary>
-                SWFMB.Show(DuoAPI.UserDataRaw().InviteUrl);
+                SWFMB.Show(DuoAPI.UserDataRaw().InviteUrl, "Result");
 
                 /// <summary>
                 /// 
                 /// </summary>
-                SWFMB.Show(NJJS.SerializeObject(DuoAPI.UserInfo(), Newtonsoft.Json.Formatting.Indented));
+                SWFMB.Show(NJJS.SerializeObject(DuoAPI.UserInfo(), Newtonsoft.Json.Formatting.Indented), "Result");
 
                 /// <summary>
                 /// 
                 /// </summary>
-                SWFMB.Show(NJJS.SerializeObject(DuoAPI.Streak(), Newtonsoft.Json.Formatting.Indented));
+                SWFMB.Show(NJJS.SerializeObject(DuoAPI.Streak(), Newtonsoft.Json.Formatting.Indented), "Result");
 
                 /// <summary>
                 /// 
                 /// </summary>
-                SWFMB.Show(NJJS.SerializeObject(DuoAPI.Calendar(), Newtonsoft.Json.Formatting.Indented));
+                SWFMB.Show(NJJS.SerializeObject(DuoAPI.Calendar(), Newtonsoft.Json.Formatting.Indented), "Result");
 
                 /// <summary>
                 /// 
                 /// </summary>
-                SWFMB.Show(NJJS.SerializeObject(DuoAPI.Friends(), Newtonsoft.Json.Formatting.Indented));
+                SWFMB.Show(NJJS.SerializeObject(DuoAPI.Friends(), Newtonsoft.Json.Formatting.Indented), "Result");
 
                 /// <summary>
                 /// 
                 /// </summary>
-                SWFMB.Show(NJJS.SerializeObject(DuoAPI.LearningLanguages(), Newtonsoft.Json.Formatting.Indented));
+                SWFMB.Show(NJJS.SerializeObject(DuoAPI.LearningLanguages(), Newtonsoft.Json.Formatting.Indented), "Result");
 
                 /// <summary>
                 /// 
                 /// </summary>
-                SWFMB.Show(NJJS.SerializeObject(DuoAPI.KnownWords(), Newtonsoft.Json.Formatting.None));
+                SWFMB.Show(NJJS.SerializeObject(DuoAPI.KnownWords(), Newtonsoft.Json.Formatting.None), "Result");
 
                 /// <summary>
                 /// 
                 /// </summary>
-                SWFMB.Show(NJJS.SerializeObject(DuoAPI.LearnedSkills(), Newtonsoft.Json.Formatting.None));
+                SWFMB.Show(NJJS.SerializeObject(DuoAPI.LearnedSkills(), Newtonsoft.Json.Formatting.None), "Result");
 
                 /// <summary>
                 /// 
                 /// </summary>
-                //SWFMB.Show(NJJS.SerializeObject(DuoAPI.VocabularyAsync(), Newtonsoft.Json.Formatting.Indented));
+                //SWFMB.Show(NJJS.SerializeObject(DuoAPI.VocabularyAsync(), Newtonsoft.Json.Formatting.Indented), "Result");
 
                 /// <summary>
                 /// 
                 /// </summary>
-                //SWFMB.Show(NJJS.SerializeObject(DuoAPI.LexemeDataAsync("55", "en"), Newtonsoft.Json.Formatting.Indented));
+                //SWFMB.Show(NJJS.SerializeObject(DuoAPI.LexemeDataAsync("55", "en"), Newtonsoft.Json.Formatting.Indented), "Result");
             }
             catch (SE Exception)
             {
-                SWFMB.Show(Exception.Message);
+                SWFMB.Show(Exception.Message, "Alert");
                 //SWFMB.Show(Exception.StackTrace);
             }
         }

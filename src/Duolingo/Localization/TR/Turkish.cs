@@ -41,6 +41,8 @@ namespace Duolingo.Localization.TR
 
             { DELC.Json_Convert_Deserialize_Data, "Veri ayrıştırılırken bir arıza oldu." },
             { DELC.Json_Convert_Deserialize_User_Data, "Kullanıcı verisi ayrıştırılırken bir arıza oldu." },
+            { DELC.Json_Convert_Deserialize_Lexeme_Data, "Sözlük verisi ayrıştırılırken bir arıza oldu." },
+            { DELC.Json_Convert_Deserialize_Vocabulary_Data, "Kelime verisi ayrıştırılırken bir arıza oldu." },
         };
 
         #endregion

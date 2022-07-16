@@ -29,6 +29,8 @@
 
         Json_Convert_Deserialize_Data,
         Json_Convert_Deserialize_User_Data,
+        Json_Convert_Deserialize_Lexeme_Data,
+        Json_Convert_Deserialize_Vocabulary_Data,
 
     }
 

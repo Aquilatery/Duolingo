@@ -7,6 +7,7 @@ using DMLD = Duolingo.Model.LoginData;
 using DSA = Duolingo.Struct.Account;
 using DSC = Duolingo.Struct.Client;
 using DSL = Duolingo.Struct.Localization;
+using NJJS = Newtonsoft.Json.JsonConvert;
 using STE = System.Text.Encoding;
 using SWFF = System.Windows.Forms.Form;
 using SWFMB = System.Windows.Forms.MessageBox;
@@ -48,15 +49,27 @@ namespace Duolingo_CR
                 EncodingType = STE.UTF8
             };
 
-            DD Duolingo = new(Localization, Account, Client);
+            DD DuoAPI = new(Localization, Account, Client);
 
-            DMLD LoginData = Duolingo.LoginData;
+            DMLD LoginData = DuoAPI.LoginData;
 
             SWFMB.Show(LoginData.UserId + " - " + LoginData.Username);
 
-            SWFMB.Show(Duolingo.Account.Email + " - " + Duolingo.Account.Username + " - " + Duolingo.Account.Password);
+            SWFMB.Show(DuoAPI.UserDataRaw().InviteUrl);
 
-            SWFMB.Show(Duolingo.UserDataRaw().InviteUrl);
+            SWFMB.Show(NJJS.SerializeObject(DuoAPI.UserInfo(), Newtonsoft.Json.Formatting.Indented));
+
+            SWFMB.Show(NJJS.SerializeObject(DuoAPI.Streak(), Newtonsoft.Json.Formatting.Indented));
+
+            SWFMB.Show(NJJS.SerializeObject(DuoAPI.Calendar(), Newtonsoft.Json.Formatting.Indented));
+
+            SWFMB.Show(NJJS.SerializeObject(DuoAPI.Friends(), Newtonsoft.Json.Formatting.Indented));
+
+            SWFMB.Show(NJJS.SerializeObject(DuoAPI.LearningLanguages(), Newtonsoft.Json.Formatting.Indented));
+
+            //SWFMB.Show(NJJS.SerializeObject(DuoAPI.VocabularyAsync(), Newtonsoft.Json.Formatting.Indented));
+
+            //SWFMB.Show(NJJS.SerializeObject(DuoAPI.LexemeDataAsync("55", "en"), Newtonsoft.Json.Formatting.Indented));
         }
     }
 }

@@ -9,7 +9,6 @@ using DLTRT = Duolingo.Localization.TR.Turkish;
 using DSA = Duolingo.Struct.Account;
 using SCG = System.Collections.Generic;
 using SE = System.Exception;
-using STE = System.Text.Encoding;
 using SU = System.Uri;
 
 #endregion
@@ -38,11 +37,6 @@ namespace Duolingo.Value
         /// <summary>
         /// 
         /// </summary>
-        public static readonly STE DefaultEncodingType = STE.UTF8;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public const string UserAgent = "Duolingo-HTTPClientProduct/1.0.0.1";
 
         /// <summary>
@@ -59,6 +53,11 @@ namespace Duolingo.Value
         /// 
         /// </summary>
         public const string LoginContent = "{{\"login\":\"{0}\",\"password\":\"{1}\"}}";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string LexemeContent = "/api/1/dictionary_page?lexeme_id={0}&from_language_id={1}";
 
         /// <summary>
         /// 

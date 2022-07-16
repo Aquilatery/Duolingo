@@ -1,13 +1,11 @@
 ﻿#region Imports
 
-using DELC = Duolingo.Enum.Localization.Code;
 using DELL = Duolingo.Enum.Language.Languages;
-using DLENE = Duolingo.Localization.EN.English;
-using DLESS = Duolingo.Localization.ES.Spanish;
-using DLTRT = Duolingo.Localization.TR.Turkish;
-using DSA = Duolingo.Struct.Account;
+using DSC = Duolingo.Struct.Client;
+using DSL = Duolingo.Struct.Localization;
+using DVC = Duolingo.Value.Constant;
 using SCG = System.Collections.Generic;
-using SE = System.Exception;
+using STE = System.Text.Encoding;
 using SU = System.Uri;
 
 #endregion
@@ -42,6 +40,28 @@ namespace Duolingo.Value
         /// 
         /// </summary>
         public static readonly string VocabularyUri = "vocabulary/overview";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly STE DefaultEncodingType = STE.UTF8;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly DSL DefaultLocalization = new()
+        {
+            Language = DVC.DefaultLanguage
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly DSC DefaultClient = new()
+        {
+            ProtocolType = DVC.DefaultProtocolType,
+            EncodingType = DefaultEncodingType
+        };
 
         /// <summary>
         /// 

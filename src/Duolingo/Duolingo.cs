@@ -1,31 +1,34 @@
 ﻿#region Imports
 
-using Newtonsoft.Json;
-using System;
-using System.Net.Http;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using DELC = Duolingo.Enum.Localization.Code;
-using DELL = Duolingo.Enum.Language.Languages;
 using DHEC = Duolingo.Helper.Exception.Check;
 using DHIPC = Duolingo.Helper.InternetProtocol.Client;
 using DHLM = Duolingo.Helper.Localization.Message;
 using DMLD = Duolingo.Model.LoginData;
+using DMLR = Duolingo.Model.Lexeme.Root;
+using DMS = Duolingo.Model.Streak;
 using DMU = Duolingo.Model.User;
+using DMUC = Duolingo.Model.User.Calendar;
+using DMUI = Duolingo.Model.UserInfo;
+using DMUL = Duolingo.Model.User.Language;
+using DMUPRD = Duolingo.Model.User.PointsRankingData;
 using DMUR = Duolingo.Model.User.Root;
+using DMVR = Duolingo.Model.Vocabulary.Root;
 using DSA = Duolingo.Struct.Account;
 using DSC = Duolingo.Struct.Client;
 using DSL = Duolingo.Struct.Localization;
 using DVC = Duolingo.Value.Constant;
 using DVR = Duolingo.Value.Readonly;
 using DVV = Duolingo.Value.Variable;
+using NJJC = Newtonsoft.Json.JsonConvert;
 using NJLJO = Newtonsoft.Json.Linq.JObject;
-using SC = System.Convert;
+using SCG = System.Collections.Generic;
 using SE = System.Exception;
-using SIOMS = System.IO.MemoryStream;
-using SLE = System.Linq.Enumerable;
-using STE = System.Text.Encoding;
-using STRER = System.Text.RegularExpressions.Regex;
+using SNHHRE = System.Net.Http.HttpRequestException;
+using SNHHRM = System.Net.Http.HttpResponseMessage;
+using SNHSC = System.Net.Http.StringContent;
+using SRCSCTAHRM = System.Runtime.CompilerServices.ConfiguredTaskAwaitable<System.Net.Http.HttpResponseMessage>;
+using STT = System.Threading.Tasks;
 
 #endregion
 
@@ -34,7 +37,7 @@ using STRER = System.Text.RegularExpressions.Regex;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 15.Jul.2022
-//     Changed: 15.Jul.2022
+//     Changed: 16.Jul.2022
 //     Version: 1.0.0.2
 //
 // |---------DO-NOT-REMOVE---------|
@@ -52,38 +55,41 @@ namespace Duolingo
         /// 
         /// </summary>
         /// <returns></returns>
-        public static async Task<DMLD> LoginAsync()
+        /// <exception cref="SE"></exception>
+        public static async STT.Task<DMLD> LoginAsync()
         {
+            string Data;
+
             try
             {
-                ConfiguredTaskAwaitable<HttpResponseMessage> configuredTaskAwaitable = DHIPC.HTTPClient.GetAsync("/").ConfigureAwait(false);
+                SRCSCTAHRM configuredTaskAwaitable = DHIPC.HTTPClient.GetAsync("/").ConfigureAwait(false);
 
                 (await configuredTaskAwaitable).EnsureSuccessStatusCode();
 
-                configuredTaskAwaitable = DHIPC.HTTPClient.PostAsync(DVR.LoginUri, new StringContent(string.Format(DVC.LoginContent, string.IsNullOrEmpty(DVV.Account.Email) ? DVV.Account.Username : DVV.Account.Email, DVV.Account.Password), DVV.EncodingType, DVC.MediaType)).ConfigureAwait(false);
+                configuredTaskAwaitable = DHIPC.HTTPClient.PostAsync(DVR.LoginUri, new SNHSC(string.Format(DVC.LoginContent, string.IsNullOrEmpty(DVV.Account.Email) ? DVV.Account.Username : DVV.Account.Email, DVV.Account.Password), DVV.EncodingType, DVC.MediaType)).ConfigureAwait(false);
 
-                HttpResponseMessage httpResponseMessage = await configuredTaskAwaitable;
+                SNHHRM httpResponseMessage = await configuredTaskAwaitable;
 
                 httpResponseMessage.EnsureSuccessStatusCode();
 
-                string Data = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
-
-                try
-                {
-                    return JsonConvert.DeserializeObject<DMLD>(Data);
-                }
-                catch
-                {
-                    throw new SE(DHLM.Get(DELC.Json_Convert_Deserialize_Data));
-                }
+                Data = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
             }
-            catch (HttpRequestException)
+            catch (SNHHRE)
             {
                 throw new SE(DHLM.Get(DELC.Connect_Try_Failure));
             }
             catch (SE Exception)
             {
                 throw new SE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
+            }
+
+            try
+            {
+                return NJJC.DeserializeObject<DMLD>(Data);
+            }
+            catch
+            {
+                throw new SE(DHLM.Get(DELC.Json_Convert_Deserialize_Data));
             }
         }
 
@@ -92,34 +98,115 @@ namespace Duolingo
         /// </summary>
         /// <param name="LoginData"></param>
         /// <returns></returns>
-        public static async Task GetUserDataAsync(DMLD LoginData)
+        /// <exception cref="SE"></exception>
+        public static async STT.Task GetUserDataAsync(DMLD LoginData)
         {
+            string Data;
+
             try
             {
-                HttpResponseMessage httpResponseMessage = await DHIPC.HTTPClient.GetAsync(string.Format(DVR.UserDataUri, LoginData.Username)).ConfigureAwait(false);
+                SNHHRM httpResponseMessage = await DHIPC.HTTPClient.GetAsync(string.Format(DVR.UserDataUri, LoginData.Username)).ConfigureAwait(false);
 
                 httpResponseMessage.EnsureSuccessStatusCode();
 
-                string Data = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
-
-                try
-                {
-                    DVV.UserData = JsonConvert.DeserializeObject<DMUR>(Data);
-
-                    DVV.UserData.LanguageData = NJLJO.Parse(Data)[DVC.LanguageData][DVV.UserData.LearningLanguage].ToObject<DMU.LanguageStudied>();
-                }
-                catch
-                {
-                    throw new SE(DHLM.Get(DELC.Json_Convert_Deserialize_User_Data));
-                }
+                Data = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
             }
-            catch (HttpRequestException)
+            catch (SNHHRE)
             {
                 throw new SE(DHLM.Get(DELC.Connect_Try_Failure));
             }
             catch (SE Exception)
             {
                 throw new SE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
+            }
+
+            try
+            {
+                DVV.UserData = NJJC.DeserializeObject<DMUR>(Data);
+
+                DVV.UserData.LanguageData = NJLJO.Parse(Data)[DVC.LanguageData][DVV.UserData.LearningLanguage].ToObject<DMU.LanguageStudied>();
+            }
+            catch
+            {
+                throw new SE(DHLM.Get(DELC.Json_Convert_Deserialize_User_Data));
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="LexemeID"></param>
+        /// <param name="LanguageID"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static async STT.Task<DMLR> GetLexemeDataAsync(string LexemeID, string LanguageID)
+        {
+            string Data;
+
+            try
+            {
+                DMLR Root = new();
+
+                SNHHRM httpResponseMessage = await DHIPC.HTTPClient.GetAsync(string.Format(DVC.LexemeContent, LexemeID, LanguageID)).ConfigureAwait(false);
+
+                httpResponseMessage.EnsureSuccessStatusCode();
+
+                Data = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+            }
+            catch (SNHHRE)
+            {
+                throw new SE(DHLM.Get(DELC.Connect_Try_Failure));
+            }
+            catch (SE Exception)
+            {
+                throw new SE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
+            }
+
+            try
+            {
+                return NJJC.DeserializeObject<DMLR>(Data);
+            }
+            catch
+            {
+                throw new SE(DHLM.Get(DELC.Json_Convert_Deserialize_Lexeme_Data));
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
+        public static async STT.Task<DMVR> GetVocabularyAsync()
+        {
+            string Data;
+
+            try
+            {
+                DMVR Root = new();
+
+                SNHHRM httpResponseMessage = await DHIPC.HTTPClient.GetAsync(DVR.VocabularyUri).ConfigureAwait(false);
+
+                httpResponseMessage.EnsureSuccessStatusCode();
+
+                Data = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+            }
+            catch (SNHHRE)
+            {
+                throw new SE(DHLM.Get(DELC.Connect_Try_Failure));
+            }
+            catch (SE Exception)
+            {
+                throw new SE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
+            }
+
+            try
+            {
+                return NJJC.DeserializeObject<DMVR>(Data);
+            }
+            catch
+            {
+                throw new SE(DHLM.Get(DELC.Json_Convert_Deserialize_Vocabulary_Data));
             }
         }
     }
@@ -136,9 +223,9 @@ namespace Duolingo
         /// <param name="Account"></param>
         public Duolingo(DSA Account)
         {
-            DHEC.Conrol(new DSL() { Language = DVC.DefaultLanguage });
+            DHEC.Conrol(DVR.DefaultLocalization);
             DHEC.Conrol(Account);
-            DHEC.Conrol(new DSC() { ProtocolType = DVC.DefaultProtocolType, EncodingType = DVC.DefaultEncodingType });
+            DHEC.Conrol(DVR.DefaultClient);
 
             Initialize();
         }
@@ -152,7 +239,7 @@ namespace Duolingo
         {
             DHEC.Conrol(Localization);
             DHEC.Conrol(Account);
-            DHEC.Conrol(new DSC() { ProtocolType = DVC.DefaultProtocolType, EncodingType = DVC.DefaultEncodingType });
+            DHEC.Conrol(DVR.DefaultClient);
 
             Initialize();
         }
@@ -175,6 +262,149 @@ namespace Duolingo
         /// <summary>
         /// 
         /// </summary>
+        public DSA Account => DVV.Account;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DMLD LoginData => DVV.LoginData;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public DMUR UserDataRaw()
+        {
+            return DVV.UserData;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public DMUI UserInfo()
+        {
+            return new()
+            {
+                Avatar = DVV.UserData.Avatar,
+                Bio = DVV.UserData.Bio,
+                BrowserLanguage = DVV.UserData.BrowserLanguage,
+                Created = DVV.UserData.Created,
+                Email = DVV.UserData.Email,
+                FacebookId = DVV.UserData.FacebookId,
+                Fullname = DVV.UserData.Fullname,
+                GplusId = DVV.UserData.GplusId,
+                Id = DVV.UserData.Id,
+                InviteUrl = DVV.UserData.InviteUrl,
+                IsAdmin = DVV.UserData.Admin,
+                IsTrialAccount = DVV.UserData.TrialAccount,
+                LearningLanguage = DVV.UserData.LearningLanguageString,
+                LearningLanguageAbbreviation = DVV.UserData.LearningLanguage,
+                Location = DVV.UserData.Location,
+                Timezone = DVV.UserData.Timezone,
+                TwitterId = DVV.UserData.TwitterId,
+                UiLanguage = DVV.UserData.UiLanguage,
+                Username = DVV.UserData.Username
+            };
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public DMS Streak()
+        {
+            return new()
+            {
+                DailyGoal = DVV.UserData.DailyGoal,
+                SiteStreak = DVV.UserData.SiteStreak,
+                StreakExtendedToday = DVV.UserData.StreakExtendedToday
+            };
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public SCG.List<DMUC> Calendar()
+        {
+            SCG.List<DMUC> Calendars = new();
+
+            foreach (DMUC Calendar in DVV.UserData.LanguageData.Calendar)
+            {
+                Calendars.Add(Calendar);
+            }
+
+            return Calendars;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public SCG.List<DMUPRD> Friends()
+        {
+            SCG.List<DMUPRD> Friends = new();
+
+            if (DVV.UserData.LanguageData.PointsRankingData != null && DVV.UserData.LanguageData.PointsRankingData.Count > 0)
+            {
+                foreach (DMUPRD PointsRankingData in DVV.UserData.LanguageData.PointsRankingData)
+                {
+                    if (PointsRankingData.Username != DVV.UserData.Username)
+                    {
+                        Friends.Add(PointsRankingData);
+                    }
+                }
+            }
+
+            return Friends;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public SCG.List<DMUL> LearningLanguages()
+        {
+            SCG.List<DMUL> Languages = new();
+
+            if (DVV.UserData.Languages != null && DVV.UserData.Languages.Count > 0)
+            {
+                foreach (DMUL Language in DVV.UserData.Languages)
+                {
+                    if (Language.CurrentLearning)
+                    {
+                        Languages.Add(Language);
+                    }
+                }
+            }
+
+            return Languages;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="LexemeID"></param>
+        /// <param name="LanguageID"></param>
+        /// <returns></returns>
+        public async STT.Task<DMLR> LexemeDataAsync(string LexemeID, string LanguageID = "en")
+        {
+            return await Core.GetLexemeDataAsync(LexemeID, LanguageID);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async STT.Task<DMVR> VocabularyAsync()
+        {
+            return await Core.GetVocabularyAsync();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         private void Initialize()
         {
             DVV.LoginData = Core.LoginAsync().GetAwaiter().GetResult();
@@ -182,15 +412,6 @@ namespace Duolingo
             DHEC.Conrol(DVV.LoginData);
 
             Core.GetUserDataAsync(DVV.LoginData).GetAwaiter().GetResult();
-        }
-
-        public DSA Account => DVV.Account;
-
-        public DMLD LoginData => DVV.LoginData;
-
-        public DMUR UserDataRaw()
-        {
-            return DVV.UserData;
         }
 
         #endregion

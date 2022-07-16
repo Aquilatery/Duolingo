@@ -10,14 +10,14 @@ namespace Duolingo.Localization.EN
     #region English
 
     /// <summary>
-    /// 
+    /// Localization english message class.
     /// </summary>
     internal class English
     {
         #region Messages
 
         /// <summary>
-        /// 
+        /// The variable with the translations.
         /// </summary>
         public static SCG.Dictionary<DELC, string> Messages => new()
         {

@@ -10,18 +10,23 @@ using DVV = Duolingo.Value.Variable;
 
 using DVC = Duolingo.Value.Constant;
 using DVR = Duolingo.Value.Readonly;
-using SNHHC = System.Net.Http.HttpClient;
 
 #endregion
 
 namespace Duolingo.Helper.InternetProtocol
 {
-    #region ClientInternetProtocolHelper
+    #region Client
 
+    /// <summary>
+    /// Helper internet protocol client class.
+    /// </summary>
     internal class Client
     {
-        public static readonly SNHHC HTTPClient = new();
+        #region Client
 
+        /// <summary>
+        /// The client to which the connections are made.
+        /// </summary>
         public Client()
         {
 #if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
@@ -30,11 +35,13 @@ namespace Duolingo.Helper.InternetProtocol
 
 #endif
 
-            HTTPClient.DefaultRequestHeaders.Add("User-Agent", DVC.UserAgent);
-            //HTTPClient.DefaultRequestHeaders.UserAgent.ParseAdd(DVC.UserAgent);
+            DVR.HttpClient.DefaultRequestHeaders.Add("User-Agent", DVC.UserAgent);
+            //DVR.HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd(DVC.UserAgent);
 
-            HTTPClient.BaseAddress = DVR.BaseUri;
+            DVR.HttpClient.BaseAddress = DVR.BaseUri;
         }
+
+        #endregion
     }
 
     #endregion

@@ -9,7 +9,7 @@ namespace Duolingo.Model
     #region LoginData
 
     /// <summary>
-    /// 
+    /// Model login data class.
     /// </summary>
     public class LoginData
     {

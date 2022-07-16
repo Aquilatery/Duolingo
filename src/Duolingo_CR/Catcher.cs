@@ -47,31 +47,31 @@ namespace Duolingo_CR
             /// </summary>
             DSL Localization = new()
             {
-                Language = DELL.EN,
-                //Messages = new()
-                //{
-                //    { DELC.Empty, "x" },
+                Language = DELL.EN, //DELL.CM
+                Messages = new()
+                {
+                    { DELC.Empty, "x" },
 
-                //    { DELC.Empty_Email_Username, "xx!" },
-                //    { DELC.Empty_Password, "xxx!" },
-                //    { DELC.Space_Username, "xxxx!" },
-                //    { DELC.Space_Email, "xxxxx!" },
-                //    { DELC.Not_Valid_Email, "xxxxxx!" },
-                //    { DELC.Only_Email_Username, "xxxxxxx!" },
+                    { DELC.Empty_Email_Username, "xx!" },
+                    { DELC.Empty_Password, "xxx!" },
+                    { DELC.Space_Username, "xxxx!" },
+                    { DELC.Space_Email, "xxxxx!" },
+                    { DELC.Not_Valid_Email, "xxxxxx!" },
+                    { DELC.Only_Email_Username, "xxxxxxx!" },
 
-                //    { DELC.User_Does_Not_Exist, "xxxxxxxx!" },
-                //    { DELC.Invalid_Password, "xxxxxxxxx!" },
-                //    { DELC.Unknown_Failure, "xxxxxxxxxx." },
-                //    { DELC.Result_Failure, "xxxxxxxxxxx." },
+                    { DELC.User_Does_Not_Exist, "xxxxxxxx!" },
+                    { DELC.Invalid_Password, "xxxxxxxxx!" },
+                    { DELC.Unknown_Failure, "xxxxxxxxxx." },
+                    { DELC.Result_Failure, "xxxxxxxxxxx." },
 
-                //    { DELC.Connect_Try_Failure, "xxxxxxxxxxxx." },
-                //    { DELC.Connect_Unknown_Failure, "xxxxxxxxxxxxx:" },
+                    { DELC.Connect_Try_Failure, "xxxxxxxxxxxx." },
+                    { DELC.Connect_Unknown_Failure, "xxxxxxxxxxxxx:" },
 
-                //    { DELC.Json_Convert_Deserialize_Data, "xxxxxxxxxxxxxx." },
-                //    { DELC.Json_Convert_Deserialize_User_Data, "xxxxxxxxxxxxxxx." },
-                //    { DELC.Json_Convert_Deserialize_Lexeme_Data, "xxxxxxxxxxxxxxxx." },
-                //    { DELC.Json_Convert_Deserialize_Vocabulary_Data, "xxxxxxxxxxxxxxxxs." }
-                //}
+                    { DELC.Json_Convert_Deserialize_Data, "xxxxxxxxxxxxxx." },
+                    { DELC.Json_Convert_Deserialize_User_Data, "xxxxxxxxxxxxxxx." },
+                    { DELC.Json_Convert_Deserialize_Lexeme_Data, "xxxxxxxxxxxxxxxx." },
+                    { DELC.Json_Convert_Deserialize_Vocabulary_Data, "xxxxxxxxxxxxxxxxs." }
+                }
             };
 
             /// <summary>

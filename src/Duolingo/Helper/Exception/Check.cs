@@ -12,7 +12,6 @@ using DSC = Duolingo.Struct.Client;
 using DSL = Duolingo.Struct.Localization;
 using DVC = Duolingo.Value.Constant;
 using DVV = Duolingo.Value.Variable;
-using SCG = System.Collections.Generic;
 using SE = System.Exception;
 
 #endregion
@@ -22,15 +21,18 @@ namespace Duolingo.Helper.Exception
     #region Check
 
     /// <summary>
-    /// 
+    /// Helper exception check class.
     /// </summary>
     internal class Check
     {
         #region Control
 
         /// <summary>
-        /// 
+        /// The accuracy of the account information is checked.
         /// </summary>
+        /// <param name="Account"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
         public static bool Conrol(DSA Account)
         {
             if (!string.IsNullOrEmpty(Account.Email) && !string.IsNullOrEmpty(Account.Username))
@@ -69,30 +71,10 @@ namespace Duolingo.Helper.Exception
         }
 
         /// <summary>
-        /// 
+        /// The accuracy of client information is checked.
         /// </summary>
-        public static bool Conrol(DSL Localization)
-        {
-            DVV.SelectLanguage = Localization.Language;
-
-            if (DVV.SelectLanguage == DELL.CM && Localization.Messages == null)
-            {
-                //DVV.SelectLanguage = DVC.DefaultLanguage;
-                //throw new SE("Messages are not set even though a custom language is selected!");
-            }
-
-            if (Localization.Messages != null)
-            {
-                DVV.SelectLanguage = DELL.CM;
-                DLCMC.Messages = Localization.Messages;
-            }
-
-            return true;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
+        /// <param name="Client"></param>
+        /// <returns></returns>
         public static bool Conrol(DSC Client)
         {
 #if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
@@ -112,8 +94,34 @@ namespace Duolingo.Helper.Exception
         }
 
         /// <summary>
-        /// 
+        /// The accuracy of localization information is checked.
         /// </summary>
+        /// <param name="Localization"></param>
+        /// <returns></returns>
+        public static bool Conrol(DSL Localization)
+        {
+            DVV.SelectLanguage = Localization.Language;
+
+            if (DVV.SelectLanguage == DELL.CM && Localization.Messages == null)
+            {
+                //DVV.SelectLanguage = DVC.DefaultLanguage;
+                //throw new SE("Messages are not set even though a custom language is selected!");
+            }
+
+            if (Localization.Messages != null)
+            {
+                DLCMC.Messages = Localization.Messages;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// The accuracy of login data information is checked.
+        /// </summary>
+        /// <param name="LoginData"></param>
+        /// <returns></returns>
+        /// <exception cref="SE"></exception>
         public static bool Conrol(DMLD LoginData)
         {
             if (LoginData == null)

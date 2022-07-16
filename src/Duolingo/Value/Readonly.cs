@@ -7,6 +7,7 @@ using DVC = Duolingo.Value.Constant;
 using SCG = System.Collections.Generic;
 using STE = System.Text.Encoding;
 using SU = System.Uri;
+using SNHHC = System.Net.Http.HttpClient;
 
 #endregion
 
@@ -15,11 +16,16 @@ namespace Duolingo.Value
     #region Value
 
     /// <summary>
-    /// 
+    /// Value readonly.
     /// </summary>
     internal class Readonly
     {
         #region Readonly
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly SNHHC HttpClient = new();
 
         /// <summary>
         /// 

@@ -2,7 +2,6 @@
 
 using DELC = Duolingo.Enum.Localization.Code;
 using DHEC = Duolingo.Helper.Exception.Check;
-using DHIPC = Duolingo.Helper.InternetProtocol.Client;
 using DHLM = Duolingo.Helper.Localization.Message;
 using DMLD = Duolingo.Model.LoginData;
 using DMLR = Duolingo.Model.Lexeme.Root;
@@ -39,7 +38,7 @@ using STT = System.Threading.Tasks;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 15.Jul.2022
-//     Changed: 16.Jul.2022
+//     Changed: 17.Jul.2022
 //     Version: 1.0.0.2
 //
 // |---------DO-NOT-REMOVE---------|
@@ -49,7 +48,7 @@ namespace Duolingo
     #region Core
 
     /// <summary>
-    /// 
+    /// Duolingo core class. 
     /// </summary>
     internal class Core
     {
@@ -64,11 +63,11 @@ namespace Duolingo
 
             try
             {
-                SRCSCTAHRM configuredTaskAwaitable = DHIPC.HTTPClient.GetAsync("/").ConfigureAwait(false);
+                SRCSCTAHRM configuredTaskAwaitable = DVR.HttpClient.GetAsync("/").ConfigureAwait(false);
 
                 (await configuredTaskAwaitable).EnsureSuccessStatusCode();
 
-                configuredTaskAwaitable = DHIPC.HTTPClient.PostAsync(DVR.LoginUri, new SNHSC(string.Format(DVC.LoginContent, string.IsNullOrEmpty(DVV.Account.Email) ? DVV.Account.Username : DVV.Account.Email, DVV.Account.Password), DVV.EncodingType, DVC.MediaType)).ConfigureAwait(false);
+                configuredTaskAwaitable = DVR.HttpClient.PostAsync(DVR.LoginUri, new SNHSC(string.Format(DVC.LoginContent, string.IsNullOrEmpty(DVV.Account.Email) ? DVV.Account.Username : DVV.Account.Email, DVV.Account.Password), DVV.EncodingType, DVC.MediaType)).ConfigureAwait(false);
 
                 SNHHRM httpResponseMessage = await configuredTaskAwaitable;
 
@@ -107,7 +106,7 @@ namespace Duolingo
 
             try
             {
-                SNHHRM httpResponseMessage = await DHIPC.HTTPClient.GetAsync(string.Format(DVR.UserDataUri, LoginData.Username)).ConfigureAwait(false);
+                SNHHRM httpResponseMessage = await DVR.HttpClient.GetAsync(string.Format(DVR.UserDataUri, LoginData.Username)).ConfigureAwait(false);
 
                 httpResponseMessage.EnsureSuccessStatusCode();
 
@@ -149,7 +148,7 @@ namespace Duolingo
             {
                 DMLR Root = new();
 
-                SNHHRM httpResponseMessage = await DHIPC.HTTPClient.GetAsync(string.Format(DVC.LexemeContent, LexemeID, LanguageID)).ConfigureAwait(false);
+                SNHHRM httpResponseMessage = await DVR.HttpClient.GetAsync(string.Format(DVC.LexemeContent, LexemeID, LanguageID)).ConfigureAwait(false);
 
                 httpResponseMessage.EnsureSuccessStatusCode();
 
@@ -187,7 +186,7 @@ namespace Duolingo
             {
                 DMVR Root = new();
 
-                SNHHRM httpResponseMessage = await DHIPC.HTTPClient.GetAsync(DVR.VocabularyUri).ConfigureAwait(false);
+                SNHHRM httpResponseMessage = await DVR.HttpClient.GetAsync(DVR.VocabularyUri).ConfigureAwait(false);
 
                 httpResponseMessage.EnsureSuccessStatusCode();
 
@@ -218,7 +217,7 @@ namespace Duolingo
     #region Duolingo
 
     /// <summary>
-    /// 
+    /// Duolingo class.
     /// </summary>
     public class Duolingo
     {

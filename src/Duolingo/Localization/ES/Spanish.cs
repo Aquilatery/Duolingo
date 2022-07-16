@@ -10,14 +10,14 @@ namespace Duolingo.Localization.ES
     #region Spanish
 
     /// <summary>
-    /// 
+    /// Localization spanish message class.
     /// </summary>
     internal class Spanish
     {
         #region Messages
 
         /// <summary>
-        /// 
+        /// The variable with the translations.
         /// </summary>
         public static SCG.Dictionary<DELC, string> Messages => new()
         {

@@ -10,14 +10,14 @@ namespace Duolingo.Localization.TR
     #region Turkish
 
     /// <summary>
-    /// 
+    /// Localization turkish message class.
     /// </summary>
     internal class Turkish
     {
         #region Messages
 
         /// <summary>
-        /// 
+        /// The variable with the translations.
         /// </summary>
         public static SCG.Dictionary<DELC, string> Messages => new()
         {

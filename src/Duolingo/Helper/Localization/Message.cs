@@ -18,14 +18,14 @@ namespace Duolingo.Helper.Localization
     #region Message
 
     /// <summary>
-    /// 
+    /// Helper localization message class.
     /// </summary>
     internal class Message
     {
         #region Get
 
         /// <summary>
-        /// 
+        /// Function from which language-specific messages are called.
         /// </summary>
         public static string Get(DELC Code)
         {
@@ -33,7 +33,7 @@ namespace Duolingo.Helper.Localization
         }
 
         /// <summary>
-        /// 
+        /// Function from which the message specific to the selected language is called.
         /// </summary>
         public static string Get(DELL Lang, DELC Code)
         {

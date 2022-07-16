@@ -10,7 +10,7 @@ namespace Duolingo.Struct
     #region Account
 
     /// <summary>
-    /// 
+    /// Struct account.
     /// </summary>
     [SRISSLA(SRISLK.Sequential)]
     public struct Account

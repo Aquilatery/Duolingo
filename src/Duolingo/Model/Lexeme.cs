@@ -11,7 +11,7 @@ namespace Duolingo.Model
     #region Lexeme
 
     /// <summary>
-    /// 
+    /// Model lexeme class.
     /// </summary>
     public class Lexeme
     {

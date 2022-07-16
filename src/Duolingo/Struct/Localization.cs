@@ -13,7 +13,7 @@ namespace Duolingo.Struct
     #region Localization
 
     /// <summary>
-    /// 
+    /// Struct localization.
     /// </summary>
     [SRISSLA(SRISLK.Sequential)]
     public struct Localization

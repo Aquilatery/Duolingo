@@ -13,7 +13,7 @@ namespace Duolingo.Model
     #region User
 
     /// <summary>
-    /// 
+    /// Model user class.
     /// </summary>
     public class User
     {

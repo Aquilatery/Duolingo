@@ -6,15 +6,7 @@ using DESPT = Duolingo.Enum.Security.ProtocolType;
 
 #endif
 
-using DELC = Duolingo.Enum.Localization.Code;
 using DELL = Duolingo.Enum.Language.Languages;
-using DLENE = Duolingo.Localization.EN.English;
-using DLESS = Duolingo.Localization.ES.Spanish;
-using DLTRT = Duolingo.Localization.TR.Turkish;
-using DSA = Duolingo.Struct.Account;
-using SCG = System.Collections.Generic;
-using SE = System.Exception;
-using SU = System.Uri;
 
 #endregion
 
@@ -23,7 +15,7 @@ namespace Duolingo.Value
     #region Value
 
     /// <summary>
-    /// 
+    /// Value constant.
     /// </summary>
     internal class Constant
     {

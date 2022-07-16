@@ -22,7 +22,7 @@ namespace Duolingo.Value
     #region Value
 
     /// <summary>
-    /// 
+    /// Value variable.
     /// </summary>
     internal class Variable
     {

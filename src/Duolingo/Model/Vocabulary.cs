@@ -13,7 +13,7 @@ namespace Duolingo.Model
     #region Vocabulary
 
     /// <summary>
-    /// 
+    /// Model vocabulary class.
     /// </summary>
     public class Vocabulary
     {

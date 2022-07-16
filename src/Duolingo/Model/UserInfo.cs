@@ -3,7 +3,7 @@
     #region UserInfo
 
     /// <summary>
-    /// 
+    /// Model user info class.
     /// </summary>
     public class UserInfo
     {

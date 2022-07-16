@@ -17,7 +17,7 @@ namespace Duolingo.Struct
     #region Client
 
     /// <summary>
-    /// 
+    /// Struct client.
     /// </summary>
     [SRISSLA(SRISLK.Sequential)]
     public struct Client

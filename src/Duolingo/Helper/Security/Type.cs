@@ -11,8 +11,16 @@ namespace Duolingo.Helper.Security
 {
     #region TypeSecurityHelper
 
+    /// <summary>
+    /// Helper security type class.
+    /// </summary>
     internal class Type
     {
+        /// <summary>
+        /// Function by which the security protocol is selected.
+        /// </summary>
+        /// <param name="Type">ProtocolType</param>
+        /// <returns></returns>
         public static SNSPT GetType(DESPT Type)
         {
 #if NET48 || NET5_0_OR_GREATER || NETCOREAPP3_1_OR_GREATER

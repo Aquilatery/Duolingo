@@ -3,7 +3,7 @@
     #region Streak
 
     /// <summary>
-    /// 
+    /// Model streak class.
     /// </summary>
     public class Streak
     {

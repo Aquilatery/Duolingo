@@ -13,6 +13,7 @@ using DMUI = Duolingo.Model.UserInfo;
 using DMUL = Duolingo.Model.User.Language;
 using DMUPRD = Duolingo.Model.User.PointsRankingData;
 using DMUR = Duolingo.Model.User.Root;
+using DMUS = Duolingo.Model.User.Skill;
 using DMVR = Duolingo.Model.Vocabulary.Root;
 using DSA = Duolingo.Struct.Account;
 using DSC = Duolingo.Struct.Client;
@@ -23,6 +24,7 @@ using DVV = Duolingo.Value.Variable;
 using NJJC = Newtonsoft.Json.JsonConvert;
 using NJLJO = Newtonsoft.Json.Linq.JObject;
 using SCG = System.Collections.Generic;
+using SCGLS = System.Collections.Generic.List<string>;
 using SE = System.Exception;
 using SNHHRE = System.Net.Http.HttpRequestException;
 using SNHHRM = System.Net.Http.HttpResponseMessage;
@@ -380,6 +382,53 @@ namespace Duolingo
             }
 
             return Languages;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public SCGLS KnownWords()
+        {
+            SCGLS KnownWords = new();
+
+            if (LearnedSkills() != null && LearnedSkills().Count > 0)
+            {
+                foreach (DMUS LearnedSkill in LearnedSkills())
+                {
+                    if (LearnedSkill.Words != null && LearnedSkill.Words.Count > 0)
+                    {
+                        foreach (string Word in LearnedSkill.Words)
+                        {
+                            KnownWords.Add(Word);
+                        }
+                    }
+                }
+            }
+
+            return KnownWords;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public SCG.List<DMUS> LearnedSkills()
+        {
+            SCG.List<DMUS> LearnedSkills = new();
+
+            if (DVV.UserData.LanguageData.Skills != null && DVV.UserData.LanguageData.Skills.Count > 0)
+            {
+                foreach (DMUS Skill in DVV.UserData.LanguageData.Skills)
+                {
+                    if (Skill.Learned)
+                    {
+                        LearnedSkills.Add(Skill);
+                    }
+                }
+            }
+
+            return LearnedSkills;
         }
 
         /// <summary>

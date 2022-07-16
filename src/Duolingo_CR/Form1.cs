@@ -67,6 +67,10 @@ namespace Duolingo_CR
 
             SWFMB.Show(NJJS.SerializeObject(DuoAPI.LearningLanguages(), Newtonsoft.Json.Formatting.Indented));
 
+            SWFMB.Show(NJJS.SerializeObject(DuoAPI.KnownWords(), Newtonsoft.Json.Formatting.None));
+
+            SWFMB.Show(NJJS.SerializeObject(DuoAPI.LearnedSkills(), Newtonsoft.Json.Formatting.None));
+
             //SWFMB.Show(NJJS.SerializeObject(DuoAPI.VocabularyAsync(), Newtonsoft.Json.Formatting.Indented));
 
             //SWFMB.Show(NJJS.SerializeObject(DuoAPI.LexemeDataAsync("55", "en"), Newtonsoft.Json.Formatting.Indented));

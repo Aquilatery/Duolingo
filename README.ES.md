@@ -69,7 +69,7 @@ Step 2：
 
 ```cs
 var localization = new Localization() { Language = Languages.ES };
-var account = new Account() { Username = "User", Password = "Pass" };
+var account = new Account() { Username = "Usuario", Password = "Contraseña" };
 var client = new Client() { EncodingType = Encoding.UTF8 };
 
 var duolingo = new Duolingo(localization, account, client);

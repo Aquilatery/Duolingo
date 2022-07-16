@@ -1,21 +1,29 @@
-﻿using Duolingo.Enum.Language;
-using Duolingo.Struct;
-using Duolingo;
-using System.Net.Http;
-using System.Windows.Forms;
-using Duolingo.Enum.Localization;
+﻿#region Imports
+
+using DD = Duolingo.Duolingo;
+using DELL = Duolingo.Enum.Language.Languages;
+using DESPT = Duolingo.Enum.Security.ProtocolType;
+using DMLD = Duolingo.Model.LoginData;
+using DSA = Duolingo.Struct.Account;
+using DSC = Duolingo.Struct.Client;
+using DSL = Duolingo.Struct.Localization;
+using STE = System.Text.Encoding;
+using SWFF = System.Windows.Forms.Form;
+using SWFMB = System.Windows.Forms.MessageBox;
+
+#endregion
 
 namespace Duolingo_CR
 {
-    public partial class Form1 : Form
+    public partial class Form1 : SWFF
     {
         public Form1()
         {
             InitializeComponent();
 
-            Localization Localization = new()
+            DSL Localization = new()
             {
-                Language = Languages.TR,
+                Language = DELL.TR,
                 //Messages = new()
                 //{
                 //    { Code.Empty, "x" },
@@ -27,14 +35,28 @@ namespace Duolingo_CR
                 //}
             };
 
-            Account Account = new()
+            DSA Account = new()
             {
-                Email = "alyaxvega@gmail.com",
-                Username = "AlyaVega",
-                Password = ""
+                Email = "alyaxvega@gmail.com", //alyaxvega@gmail.com
+                Username = "", //AlyaVega
+                Password = "123qWe123"
             };
 
-            Duolingo.Duolingo duolingo = new(Localization, Account);
+            DSC Client = new()
+            {
+                ProtocolType = DESPT.TLS12,
+                EncodingType = STE.UTF8
+            };
+
+            DD Duolingo = new(Localization, Account, Client);
+
+            DMLD LoginData = Duolingo.LoginData;
+
+            SWFMB.Show(LoginData.UserId + " - " + LoginData.Username);
+
+            SWFMB.Show(Duolingo.Account.Email + " - " + Duolingo.Account.Username + " - " + Duolingo.Account.Password);
+
+            SWFMB.Show(Duolingo.UserDataRaw().InviteUrl);
         }
     }
 }

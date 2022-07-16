@@ -29,6 +29,18 @@ namespace Duolingo.Localization.TR
             { DELC.Space_Email, "E-posta boşluk karakteri içeremez!" },
             { DELC.Not_Valid_Email, "E-posta formatı hatalı!" },
             { DELC.Only_Email_Username, "Sadece e-posta veya kullanıcı adını girin!" },
+
+
+            { DELC.User_Does_Not_Exist, "Kullanıcı bulunamadı!" },
+            { DELC.Invalid_Password, "Şifre bilgisi hatalı!" },
+            { DELC.Unknown_Failure, "Bilinmeyen bir arıza oldu." },
+            { DELC.Result_Failure, "Bağlantı yapılırken bir arıza oldu." },
+
+            { DELC.Connect_Try_Failure, "Bağlantı denemesi başarısız oldu." },
+            { DELC.Connect_Unknown_Failure, "Bağlantı yapılırken bilinmeyen bir arıza oldu:" },
+
+            { DELC.Json_Convert_Deserialize_Data, "Veri ayrıştırılırken bir arıza oldu." },
+            { DELC.Json_Convert_Deserialize_User_Data, "Kullanıcı verisi ayrıştırılırken bir arıza oldu." },
         };
 
         #endregion

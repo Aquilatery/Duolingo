@@ -19,6 +19,17 @@
         Not_Valid_Email,
         Only_Email_Username,
 
+        User_Does_Not_Exist,
+        Invalid_Password,
+        Unknown_Failure,
+        Result_Failure,
+
+        Connect_Try_Failure,
+        Connect_Unknown_Failure,
+
+        Json_Convert_Deserialize_Data,
+        Json_Convert_Deserialize_User_Data,
+
     }
 
     #endregion

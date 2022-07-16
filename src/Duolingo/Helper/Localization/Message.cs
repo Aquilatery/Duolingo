@@ -8,8 +8,8 @@ using DLESS = Duolingo.Localization.ES.Spanish;
 using DLRUR = Duolingo.Localization.RU.Russian;
 using DLTRT = Duolingo.Localization.TR.Turkish;
 using DVC = Duolingo.Value.Constant;
-using DVV = Duolingo.Value.Variable;
 using DVR = Duolingo.Value.Readonly;
+using DVV = Duolingo.Value.Variable;
 
 #endregion
 

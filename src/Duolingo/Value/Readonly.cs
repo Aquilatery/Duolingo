@@ -26,7 +26,22 @@ namespace Duolingo.Value
         /// <summary>
         /// 
         /// </summary>
-        public static readonly SU baseUri = new("https://www.duolingo.com/");
+        public static readonly SU BaseUri = new("https://www.duolingo.com/");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly string LoginUri = "login";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly string UserDataUri = "users/{0}";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static readonly string VocabularyUri = "vocabulary/overview";
 
         /// <summary>
         /// 

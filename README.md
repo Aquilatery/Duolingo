@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/Taiizor/Duolingo/develop/.images/Logo.png)
+![Logo](.images/Logo.png)
 
 ![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.5.2-blue)
 ![Dot-Net-Standard-Version](https://img.shields.io/badge/.NET%20Standard-%3E%3D1.0-blue)

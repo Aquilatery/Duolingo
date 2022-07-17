@@ -30,6 +30,7 @@ namespace Duolingo.Localization.RU
             { DELC.Not_Valid_Email, "Неправильный формат электронной почты!" },
             { DELC.Only_Email_Username, "Просто введите свой адрес электронной почты или имя пользователя!" },
 
+            { DELC.Not_Valid_User_Agent, "Неправильный формат агента пользователя!" },
 
             { DELC.User_Does_Not_Exist, "Пользователь не найден!" },
             { DELC.Invalid_Password, "Информация о пароле неверна!" },

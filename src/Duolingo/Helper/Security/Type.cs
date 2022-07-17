@@ -44,7 +44,7 @@ namespace Duolingo.Helper.Security
                 DESPT.TLS11 => (SNSPT)768,
                 DESPT.TLS12 => (SNSPT)3072,
                 DESPT.TLS13 => (SNSPT)12288,
-                _ => (SNSPT)0,
+                _ => 0,
             };
 
 #endif

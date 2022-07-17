@@ -45,6 +45,12 @@
 
 
         /// <summary>
+        /// UserAgent format incorrect alert message code.
+        /// </summary>
+        Not_Valid_User_Agent,
+
+
+        /// <summary>
         /// User not found alert message code.
         /// </summary>
         User_Does_Not_Exist,

@@ -5,9 +5,9 @@ using DSC = Duolingo.Struct.Client;
 using DSL = Duolingo.Struct.Localization;
 using DVC = Duolingo.Value.Constant;
 using SCG = System.Collections.Generic;
+using SNHHC = System.Net.Http.HttpClient;
 using STE = System.Text.Encoding;
 using SU = System.Uri;
-using SNHHC = System.Net.Http.HttpClient;
 
 #endregion
 
@@ -70,6 +70,8 @@ namespace Duolingo.Value
             ProtocolType = DVC.DefaultProtocolType,
 
 #endif
+            Timeout = DVC.DefaultTimeout,
+            UserAgent = DVC.DefaultUserAgent,
             EncodingType = DefaultEncodingType
         };
 

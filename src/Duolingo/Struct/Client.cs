@@ -34,6 +34,16 @@ namespace Duolingo.Struct
         /// <summary>
         /// 
         /// </summary>
+        public int Timeout;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string UserAgent;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public STE EncodingType;
     }
 

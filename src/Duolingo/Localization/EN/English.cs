@@ -30,6 +30,8 @@ namespace Duolingo.Localization.EN
             { DELC.Not_Valid_Email, "The email format is incorrect!" },
             { DELC.Only_Email_Username, "Just enter your email or username!" },
 
+            { DELC.Not_Valid_User_Agent, "The useragent format is incorrect!" },
+
             { DELC.User_Does_Not_Exist, "User not found!" },
             { DELC.Invalid_Password, "The password information is incorrect!" },
             { DELC.Unknown_Failure, "There was an unknown malfunction." },

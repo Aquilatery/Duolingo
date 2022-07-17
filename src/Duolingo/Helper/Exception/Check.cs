@@ -11,6 +11,7 @@ using DSA = Duolingo.Struct.Account;
 using DSC = Duolingo.Struct.Client;
 using DSL = Duolingo.Struct.Localization;
 using DVC = Duolingo.Value.Constant;
+using DVR = Duolingo.Value.Readonly;
 using DVV = Duolingo.Value.Variable;
 using SE = System.Exception;
 
@@ -82,6 +83,34 @@ namespace Duolingo.Helper.Exception
             DVV.ProtocolType = Client.ProtocolType;
 
 #endif
+
+            if (Client.Timeout <= 0)
+            {
+                DVV.Timeout = DVC.DefaultTimeout;
+            }
+            else
+            {
+                DVV.Timeout = Client.Timeout;
+            }
+
+            if (Client.UserAgent == null)
+            {
+                DVV.UserAgent = DVC.DefaultUserAgent;
+            }
+            else
+            {
+                DVV.UserAgent = Client.UserAgent;
+            }
+
+            try
+            {
+                DVR.HttpClient.DefaultRequestHeaders.Add("User-Agent", DVV.UserAgent);
+                //DVR.HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd(DVV.UserAgent);
+            }
+            catch
+            {
+                throw new SE(DHLM.Get(DELC.Not_Valid_User_Agent));
+            }
 
             DVV.EncodingType = Client.EncodingType;
 

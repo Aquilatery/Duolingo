@@ -30,6 +30,7 @@ namespace Duolingo.Localization.TR
             { DELC.Not_Valid_Email, "E-posta formatı hatalı!" },
             { DELC.Only_Email_Username, "Sadece e-posta veya kullanıcı adını girin!" },
 
+            { DELC.Not_Valid_User_Agent, "UserAgent formatı hatalı!" },
 
             { DELC.User_Does_Not_Exist, "Kullanıcı bulunamadı!" },
             { DELC.Invalid_Password, "Şifre bilgisi hatalı!" },

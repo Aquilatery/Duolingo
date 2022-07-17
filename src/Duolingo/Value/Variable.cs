@@ -6,8 +6,8 @@ using DESPT = Duolingo.Enum.Security.ProtocolType;
 
 #endif
 
-using DHIPC = Duolingo.Helper.InternetProtocol.Client;
 using DELL = Duolingo.Enum.Language.Languages;
+using DHIPC = Duolingo.Helper.InternetProtocol.Client;
 using DMLD = Duolingo.Model.LoginData;
 using DMUR = Duolingo.Model.User.Root;
 using DSA = Duolingo.Struct.Account;
@@ -46,6 +46,16 @@ namespace Duolingo.Value
         public static DESPT ProtocolType = DVC.DefaultProtocolType;
 
 #endif
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static int Timeout = DVC.DefaultTimeout;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string UserAgent = DVC.DefaultUserAgent;
 
         /// <summary>
         /// 

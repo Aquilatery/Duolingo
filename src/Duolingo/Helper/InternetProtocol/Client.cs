@@ -4,12 +4,12 @@
 
 using DHST = Duolingo.Helper.Security.Type;
 using SNSPM = System.Net.ServicePointManager;
-using DVV = Duolingo.Value.Variable;
 
 #endif
 
-using DVC = Duolingo.Value.Constant;
 using DVR = Duolingo.Value.Readonly;
+using DVV = Duolingo.Value.Variable;
+using STS = System.TimeSpan;
 
 #endregion
 
@@ -35,8 +35,7 @@ namespace Duolingo.Helper.InternetProtocol
 
 #endif
 
-            DVR.HttpClient.DefaultRequestHeaders.Add("User-Agent", DVC.UserAgent);
-            //DVR.HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd(DVC.UserAgent);
+            DVR.HttpClient.Timeout = STS.FromSeconds(DVV.Timeout);
 
             DVR.HttpClient.BaseAddress = DVR.BaseUri;
         }

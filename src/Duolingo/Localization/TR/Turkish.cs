@@ -34,7 +34,7 @@ namespace Duolingo.Localization.TR
             { DELC.User_Does_Not_Exist, "Kullanıcı bulunamadı!" },
             { DELC.Invalid_Password, "Şifre bilgisi hatalı!" },
             { DELC.Unknown_Failure, "Bilinmeyen bir arıza oldu." },
-            { DELC.Result_Failure, "Bağlantı yapılırken bir arıza oldu." },
+            { DELC.Result_Failure, "Cevap alınırken bir arıza oldu." },
 
             { DELC.Connect_Try_Failure, "Bağlantı denemesi başarısız oldu." },
             { DELC.Connect_Unknown_Failure, "Bağlantı yapılırken bilinmeyen bir arıza oldu:" },

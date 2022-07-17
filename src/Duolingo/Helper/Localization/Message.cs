@@ -4,6 +4,7 @@ using DELC = Duolingo.Enum.Localization.Code;
 using DELL = Duolingo.Enum.Language.Languages;
 using DLCMC = Duolingo.Localization.CM.Custom;
 using DLENE = Duolingo.Localization.EN.English;
+using DLDEG = Duolingo.Localization.DE.German;
 using DLESS = Duolingo.Localization.ES.Spanish;
 using DLRUR = Duolingo.Localization.RU.Russian;
 using DLTRT = Duolingo.Localization.TR.Turkish;
@@ -41,6 +42,7 @@ namespace Duolingo.Helper.Localization
             {
                 DELL.TR => DLTRT.Messages.ContainsKey(Code) ? DLTRT.Messages[Code] : $"[{Code}] {(DVR.NotSetCode.ContainsKey(Lang) ? DVR.NotSetCode[Lang] : DVC.NotSetCode)}",
                 DELL.EN => DLENE.Messages.ContainsKey(Code) ? DLENE.Messages[Code] : $"[{Code}] {(DVR.NotSetCode.ContainsKey(Lang) ? DVR.NotSetCode[Lang] : DVC.NotSetCode)}",
+                DELL.DE => DLDEG.Messages.ContainsKey(Code) ? DLDEG.Messages[Code] : $"[{Code}] {(DVR.NotSetCode.ContainsKey(Lang) ? DVR.NotSetCode[Lang] : DVC.NotSetCode)}",
                 DELL.ES => DLESS.Messages.ContainsKey(Code) ? DLESS.Messages[Code] : $"[{Code}] {(DVR.NotSetCode.ContainsKey(Lang) ? DVR.NotSetCode[Lang] : DVC.NotSetCode)}",
                 DELL.RU => DLRUR.Messages.ContainsKey(Code) ? DLRUR.Messages[Code] : $"[{Code}] {(DVR.NotSetCode.ContainsKey(Lang) ? DVR.NotSetCode[Lang] : DVC.NotSetCode)}",
                 DELL.CM => DLCMC.Messages.ContainsKey(Code) ? DLCMC.Messages[Code] : $"[{Lang}]-[{Code}] {DVC.NotSetCode}",

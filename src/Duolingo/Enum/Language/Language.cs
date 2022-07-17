@@ -18,6 +18,11 @@
         EN,
 
         /// <summary>
+        /// Deutsch.
+        /// </summary>
+        DE,
+
+        /// <summary>
         /// Español.
         /// </summary>
         ES,

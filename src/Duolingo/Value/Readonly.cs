@@ -80,8 +80,9 @@ namespace Duolingo.Value
         {
             { DELL.TR, "Seçilen kodun mesajı ayarlanmadı." },
             { DELL.EN, "The message of the selected code is not set." },
-            { DELL.ES, "El mensaje del código seleccionado no está configurado." },
-            { DELL.RU, "Сообщение о выбранном коде не установлено." }
+            { DELL.DE, "Die Meldung des ausgewählten Codes ist nicht festgelegt." },
+            { DELL.ES, "El mensaje del código seleccionado no está establecido." },
+            { DELL.RU, "Сообщение выбранного кода не задано." }
         };
 
         /// <summary>
@@ -91,8 +92,9 @@ namespace Duolingo.Value
         {
             { DELL.TR, "Türkçe dilinin mesajları ayarlanmadı." },
             { DELL.EN, "Messages of the English language are not set." },
+            { DELL.DE, "Nachrichten der Deutschen sprache werden nicht gesetzt." },
             { DELL.ES, "Los mensajes del idioma Español no están configurados." },
-            { DELL.RU, "Сообщения Pусского языка не устанавливаются." }
+            { DELL.RU, "Сообщения на Русском языке не устанавливаются." }
         };
 
         #endregion

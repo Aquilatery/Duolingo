@@ -39,7 +39,7 @@ using STT = System.Threading.Tasks;
 //     Website: www.Vegalya.com
 //     Created: 15.Jul.2022
 //     Changed: 17.Jul.2022
-//     Version: 1.0.0.2
+//     Version: 1.0.0.3
 //
 // |---------DO-NOT-REMOVE---------|
 

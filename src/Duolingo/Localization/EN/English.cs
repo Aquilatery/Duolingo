@@ -23,25 +23,25 @@ namespace Duolingo.Localization.EN
         {
             { DELC.Empty, "Empty" },
 
-            { DELC.Empty_Email_Username, "Email or Username cannot be empty!" },
-            { DELC.Empty_Password, "Password cannot be empty!" },
-            { DELC.Space_Username, "Username cannot contain spaces!" },
-            { DELC.Space_Email, "Email cannot contain spaces!" },
-            { DELC.Not_Valid_Email, "Email format is incorrect!" },
+            { DELC.Empty_Email_Username, "Email or username can't be empty!" },
+            { DELC.Empty_Password, "The password cannot be empty!" },
+            { DELC.Space_Username, "Username cannot contain space characters!" },
+            { DELC.Space_Email, "Email cannot contain space characters!" },
+            { DELC.Not_Valid_Email, "The email format is incorrect!" },
             { DELC.Only_Email_Username, "Just enter your email or username!" },
 
             { DELC.User_Does_Not_Exist, "User not found!" },
-            { DELC.Invalid_Password, "Password information is incorrect!" },
-            { DELC.Unknown_Failure, "An unknown failure occurred." },
-            { DELC.Result_Failure, "There was a failure while connecting." },
+            { DELC.Invalid_Password, "The password information is incorrect!" },
+            { DELC.Unknown_Failure, "There was an unknown malfunction." },
+            { DELC.Result_Failure, "There was a malfunction while receiving the answer." },
 
-            { DELC.Connect_Try_Failure, "Connection attempt failed." },
-            { DELC.Connect_Unknown_Failure, "An unknown failure occurred while connecting:" },
+            { DELC.Connect_Try_Failure, "The connection attempt failed." },
+            { DELC.Connect_Unknown_Failure, "An unknown malfunction occurred while making the connection:" },
 
-            { DELC.Json_Convert_Deserialize_Data, "There was an error parsing the data." },
-            { DELC.Json_Convert_Deserialize_User_Data, "There was an error parsing user data." },
-            { DELC.Json_Convert_Deserialize_Lexeme_Data, "There was an error parsing the dictionary data." },
-            { DELC.Json_Convert_Deserialize_Vocabulary_Data, "There was an error parsing the word data." }
+            { DELC.Json_Convert_Deserialize_Data, "There was a malfunction while parsing the data." },
+            { DELC.Json_Convert_Deserialize_User_Data, "There was a malfunction while parsing the user data." },
+            { DELC.Json_Convert_Deserialize_Lexeme_Data, "There was a malfunction while parsing the lexeme data." },
+            { DELC.Json_Convert_Deserialize_Vocabulary_Data, "There was a malfunction while parsing the vocabulary data." }
         };
 
         #endregion

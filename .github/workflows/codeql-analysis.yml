@@ -46,20 +46,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 7.0.100-preview.6.22352.1
-
-    - name: Restore the Duolingo
-      run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }} -p:UseSharedCompilation=false
-
-    - name: Build the Duolingo
-      run: dotnet build ${{ matrix.solution }} -c ${{ matrix.configuration }} -p:UseSharedCompilation=false --no-restore /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0618,CS0649,CS8632,CA1416,NU5104,NETSDK1138,SYSLIB0003
-
-    - name: Test the Duolingo
-      run: dotnet test ${{ matrix.solution }} -c ${{ matrix.configuration }} --no-build --verbosity normal
-
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
@@ -72,7 +58,20 @@ jobs:
         # Details on CodeQL's query packs refer to : https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs
         # queries: security-extended,security-and-quality
 
-        
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 7.0.100-preview.6.22352.1
+
+    - name: Restore the Duolingo
+      run: dotnet restore ${{ matrix.solution }} -p:Configuration=${{ matrix.configuration }} -p:UseSharedCompilation=true
+
+    - name: Build the Duolingo
+      run: dotnet build ${{ matrix.solution }} -c ${{ matrix.configuration }} -p:UseSharedCompilation=true --no-restore /nowarn:CS0067,CS0108,CS0109,CS0114,CS0169,CS0414,CS0618,CS0649,CS8632,CA1416,NU5104,NETSDK1138,SYSLIB0003
+
+    - name: Test the Duolingo
+      run: dotnet test ${{ matrix.solution }} -c ${{ matrix.configuration }} --no-build --verbosity normal
+
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
     # - name: Autobuild

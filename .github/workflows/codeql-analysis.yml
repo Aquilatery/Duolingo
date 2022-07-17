@@ -18,7 +18,7 @@ on:
     # The branches below must be a subset of the branches above
     branches: [ "develop" ]
   schedule:
-    - cron: '32 1 * * 4'
+    - cron: '24 * * * *'
 
 jobs:
   analyze:
@@ -74,7 +74,7 @@ jobs:
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
-    # - name: Autobuild
+    #- name: Autobuild
     #  uses: github/codeql-action/autobuild@v2
 
     # ℹ️ Command-line programs to run using the OS shell.

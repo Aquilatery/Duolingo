@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'GitHub|AnyCPU' AND '$(TargetFramework)' == 'net7.0-windows'">
-    <PackageReference Include="System.Resources.Extensions" Version="7.0.100-rc.1.22431.12" />
+    <PackageReference Include="System.Resources.Extensions" Version="7.0.0-rc.1.22426.10" />
   </ItemGroup>
 
 </Project>

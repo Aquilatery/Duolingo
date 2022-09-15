@@ -23,7 +23,7 @@ namespace Duolingo.Helper.Security
         /// <returns></returns>
         public static SNSPT GetType(DESPT Type)
         {
-#if NET48 || NET5_0_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#if NET48_OR_GREATER || NET5_0_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 
             return Type switch
             {

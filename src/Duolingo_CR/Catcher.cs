@@ -40,7 +40,7 @@ namespace Duolingo_CR
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SignIn_Click(object sender, SEA e)
+        private async void SignIn_Click(object sender, SEA e)
         {
             /// <summary>
             /// 
@@ -100,6 +100,12 @@ namespace Duolingo_CR
 
             try
             {
+                //System.Windows.Forms.Clipboard.SetText(await DD.Test1());
+
+                SWFMB.Show(await DD.Test1(), "Result");
+
+                //SWFMB.Show(await DD.Test2(), "Result");
+
                 /// <summary>
                 /// 
                 /// </summary>

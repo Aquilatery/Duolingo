@@ -1,6 +1,8 @@
 ﻿#region Imports
 
 using System.Text.RegularExpressions;
+using DAE = Duolingo.ArgumentException;
+using DE = Duolingo.Exception;
 using DELC = Duolingo.Enum.Localization.Code;
 using DELL = Duolingo.Enum.Language.Languages;
 using DHIPC = Duolingo.Helper.InternetProtocol.Client;
@@ -13,7 +15,6 @@ using DSL = Duolingo.Struct.Localization;
 using DVC = Duolingo.Value.Constant;
 using DVR = Duolingo.Value.Readonly;
 using DVV = Duolingo.Value.Variable;
-using SE = System.Exception;
 
 #endregion
 
@@ -33,37 +34,38 @@ namespace Duolingo.Helper.Exception
         /// </summary>
         /// <param name="Account"></param>
         /// <returns></returns>
-        /// <exception cref="SE"></exception>
+        /// <exception cref="DE"></exception>
+        /// <exception cref="DAE"></exception>
         public static bool Conrol(DSA Account)
         {
             if (!string.IsNullOrEmpty(Account.Email) && !string.IsNullOrEmpty(Account.Username))
             {
-                throw new SE(DHLM.Get(DELC.Only_Email_Username));
+                throw new DE(DHLM.Get(DELC.Only_Email_Username));
             }
 
             if (string.IsNullOrEmpty(Account.Email) && string.IsNullOrEmpty(Account.Username))
             {
-                throw new SE(DHLM.Get(DELC.Empty_Email_Username));
+                throw new DE(DHLM.Get(DELC.Empty_Email_Username));
             }
 
-            if (!string.IsNullOrEmpty(Account.Email) && string.IsNullOrWhiteSpace(Account.Email))
+            if (!string.IsNullOrEmpty(Account.Email) && string.IsNullOrWhiteSpace(Account.Email) || Account.Email.Contains(" "))
             {
-                throw new SE(DHLM.Get(DELC.Space_Email));
+                throw new DAE(nameof(Account.Email), DHLM.Get(DELC.Space_Email));
             }
 
-            if (!string.IsNullOrEmpty(Account.Username) && string.IsNullOrWhiteSpace(Account.Username))
+            if (!string.IsNullOrEmpty(Account.Username) && string.IsNullOrWhiteSpace(Account.Username) || Account.Username.Contains(" "))
             {
-                throw new SE(DHLM.Get(DELC.Space_Username));
+                throw new DAE(nameof(Account.Username), DHLM.Get(DELC.Space_Username));
             }
 
             if (!string.IsNullOrEmpty(Account.Email) && !Regex.IsMatch(Account.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase))
             {
-                throw new SE(DHLM.Get(DELC.Not_Valid_Email));
+                throw new DAE(nameof(Account.Email), DHLM.Get(DELC.Not_Valid_Email));
             }
 
             if (string.IsNullOrEmpty(Account.Password))
             {
-                throw new SE(DHLM.Get(DELC.Empty_Password));
+                throw new DAE(nameof(Account.Password), DHLM.Get(DELC.Empty_Password));
             }
 
             DVV.Account = Account;
@@ -76,6 +78,7 @@ namespace Duolingo.Helper.Exception
         /// </summary>
         /// <param name="Client"></param>
         /// <returns></returns>
+        /// <exception cref="DE"></exception>
         public static bool Conrol(DSC Client)
         {
 #if !NETSTANDARD1_1 && !NETSTANDARD1_2 && !NETSTANDARD1_3 && !NETSTANDARD1_4 && !NETSTANDARD1_5 && !NETSTANDARD1_6
@@ -109,7 +112,7 @@ namespace Duolingo.Helper.Exception
             }
             catch
             {
-                throw new SE(DHLM.Get(DELC.Not_Valid_User_Agent));
+                throw new DE(DHLM.Get(DELC.Not_Valid_User_Agent));
             }
 
             DVV.EncodingType = Client.EncodingType;
@@ -127,6 +130,7 @@ namespace Duolingo.Helper.Exception
         /// </summary>
         /// <param name="Localization"></param>
         /// <returns></returns>
+        /// <exception cref="DAE"></exception>
         public static bool Conrol(DSL Localization)
         {
             DVV.SelectLanguage = Localization.Language;
@@ -134,7 +138,7 @@ namespace Duolingo.Helper.Exception
             if (DVV.SelectLanguage == DELL.CM && Localization.Messages == null)
             {
                 //DVV.SelectLanguage = DVC.DefaultLanguage;
-                //throw new SE("Messages are not set even though a custom language is selected!");
+                //throw new DAE(nameof(Localization.Messages), "Messages are not set even though a custom language is selected!");
             }
 
             if (Localization.Messages != null)
@@ -150,27 +154,27 @@ namespace Duolingo.Helper.Exception
         /// </summary>
         /// <param name="LoginData"></param>
         /// <returns></returns>
-        /// <exception cref="SE"></exception>
+        /// <exception cref="DE"></exception>
         public static bool Conrol(DMLD LoginData)
         {
             if (LoginData == null)
             {
-                throw new SE(DHLM.Get(DELC.Result_Failure));
+                throw new DE(DHLM.Get(DELC.Result_Failure));
             }
 
             if (LoginData.Response == null || !string.IsNullOrEmpty(LoginData.Failure))
             {
                 if (LoginData.Failure == "user_does_not_exist")
                 {
-                    throw new SE(DHLM.Get(DELC.User_Does_Not_Exist));
+                    throw new DE(DHLM.Get(DELC.User_Does_Not_Exist));
                 }
                 else if (LoginData.Failure == "invalid_password")
                 {
-                    throw new SE(DHLM.Get(DELC.Invalid_Password));
+                    throw new DE(DHLM.Get(DELC.Invalid_Password));
                 }
                 else
                 {
-                    throw new SE(DHLM.Get(DELC.Unknown_Failure));
+                    throw new DE(DHLM.Get(DELC.Unknown_Failure));
                 }
             }
 

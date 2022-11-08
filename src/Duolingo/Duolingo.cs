@@ -1,7 +1,10 @@
 ﻿#region Imports
 
+using Newtonsoft.Json;
+using DE = Duolingo.Exception;
 using DELC = Duolingo.Enum.Localization.Code;
 using DHEC = Duolingo.Helper.Exception.Check;
+using DHIPC = Duolingo.Helper.InternetProtocol.Client;
 using DHLM = Duolingo.Helper.Localization.Message;
 using DMLD = Duolingo.Model.LoginData;
 using DMLR = Duolingo.Model.Lexeme.Root;
@@ -22,6 +25,7 @@ using DVR = Duolingo.Value.Readonly;
 using DVV = Duolingo.Value.Variable;
 using NJJC = Newtonsoft.Json.JsonConvert;
 using NJLJO = Newtonsoft.Json.Linq.JObject;
+using SAOORE = System.ArgumentOutOfRangeException;
 using SCG = System.Collections.Generic;
 using SCGLS = System.Collections.Generic.List<string>;
 using SE = System.Exception;
@@ -38,7 +42,7 @@ using STT = System.Threading.Tasks;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 15.Jul.2022
-//     Changed: 15.Sep.2022
+//     Changed: 08.Nov.2022
 //     Version: 1.0.0.3
 //
 // |---------DO-NOT-REMOVE---------|
@@ -56,7 +60,7 @@ namespace Duolingo
         /// 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="SE"></exception>
+        /// <exception cref="DE"></exception>
         public static async STT.Task<DMLD> LoginAsync()
         {
             string Data;
@@ -77,11 +81,11 @@ namespace Duolingo
             }
             catch (SNHHRE)
             {
-                throw new SE(DHLM.Get(DELC.Connect_Try_Failure));
+                throw new DE(DHLM.Get(DELC.Connect_Try_Failure));
             }
             catch (SE Exception)
             {
-                throw new SE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
+                throw new DE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
             }
 
             try
@@ -90,7 +94,7 @@ namespace Duolingo
             }
             catch
             {
-                throw new SE(DHLM.Get(DELC.Json_Convert_Deserialize_Data));
+                throw new DE(DHLM.Get(DELC.Json_Convert_Deserialize_Data));
             }
         }
 
@@ -99,7 +103,7 @@ namespace Duolingo
         /// </summary>
         /// <param name="LoginData"></param>
         /// <returns></returns>
-        /// <exception cref="SE"></exception>
+        /// <exception cref="DE"></exception>
         public static async STT.Task GetUserDataAsync(DMLD LoginData)
         {
             string Data;
@@ -114,11 +118,11 @@ namespace Duolingo
             }
             catch (SNHHRE)
             {
-                throw new SE(DHLM.Get(DELC.Connect_Try_Failure));
+                throw new DE(DHLM.Get(DELC.Connect_Try_Failure));
             }
             catch (SE Exception)
             {
-                throw new SE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
+                throw new DE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
             }
 
             try
@@ -129,7 +133,7 @@ namespace Duolingo
             }
             catch
             {
-                throw new SE(DHLM.Get(DELC.Json_Convert_Deserialize_User_Data));
+                throw new DE(DHLM.Get(DELC.Json_Convert_Deserialize_User_Data));
             }
         }
 
@@ -139,7 +143,7 @@ namespace Duolingo
         /// <param name="LexemeID"></param>
         /// <param name="LanguageID"></param>
         /// <returns></returns>
-        /// <exception cref="SE"></exception>
+        /// <exception cref="DE"></exception>
         public static async STT.Task<DMLR> GetLexemeDataAsync(string LexemeID, string LanguageID)
         {
             string Data;
@@ -156,11 +160,11 @@ namespace Duolingo
             }
             catch (SNHHRE)
             {
-                throw new SE(DHLM.Get(DELC.Connect_Try_Failure));
+                throw new DE(DHLM.Get(DELC.Connect_Try_Failure));
             }
             catch (SE Exception)
             {
-                throw new SE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
+                throw new DE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
             }
 
             try
@@ -169,7 +173,7 @@ namespace Duolingo
             }
             catch
             {
-                throw new SE(DHLM.Get(DELC.Json_Convert_Deserialize_Lexeme_Data));
+                throw new DE(DHLM.Get(DELC.Json_Convert_Deserialize_Lexeme_Data));
             }
         }
 
@@ -177,7 +181,7 @@ namespace Duolingo
         /// 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="SE"></exception>
+        /// <exception cref="DE"></exception>
         public static async STT.Task<DMVR> GetVocabularyAsync()
         {
             string Data;
@@ -194,11 +198,11 @@ namespace Duolingo
             }
             catch (SNHHRE)
             {
-                throw new SE(DHLM.Get(DELC.Connect_Try_Failure));
+                throw new DE(DHLM.Get(DELC.Connect_Try_Failure));
             }
             catch (SE Exception)
             {
-                throw new SE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
+                throw new DE(DHLM.Get(DELC.Connect_Unknown_Failure) + "\n" + Exception.Message);
             }
 
             try
@@ -207,7 +211,7 @@ namespace Duolingo
             }
             catch
             {
-                throw new SE(DHLM.Get(DELC.Json_Convert_Deserialize_Vocabulary_Data));
+                throw new DE(DHLM.Get(DELC.Json_Convert_Deserialize_Vocabulary_Data));
             }
         }
     }
@@ -221,6 +225,64 @@ namespace Duolingo
     /// </summary>
     public class Duolingo
     {
+        //public static System.Net.Http.StringContent AsJson(this object o) => new(JsonConvert.SerializeObject(o), System.Text.Encoding.UTF8, "application/json");
+
+        public static System.Net.Http.StringContent AsJson(object o) => new(JsonConvert.SerializeObject(o), System.Text.Encoding.UTF8, "application/json");
+
+        public static async STT.Task<string> Test1()
+        {
+            DVV.Client = new DHIPC();
+
+            //DVR.HttpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
+            DVR.HttpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            var data = new { identifier = "xXx", password = "xXx" };
+
+            SNHHRM httpResponseMessage = await DVR.HttpClient.PostAsync("2016-04-13/login?fields=", AsJson(data)).ConfigureAwait(false); //data.AsJson() 
+
+            httpResponseMessage.EnsureSuccessStatusCode();
+
+            var response = new { Name = "", Type = "", Value = "" };
+
+            foreach (var item in httpResponseMessage.Headers)
+            {
+                if (item.Key == "jwt")
+                {
+                    foreach (string value in item.Value)
+                    {
+                        response = new { Name = "Authorization", Type = "HttpHeader", Value = "Bearer " + value };
+                    }
+                }
+            }
+
+            httpResponseMessage.EnsureSuccessStatusCode();
+
+            //return response.ToString();
+
+            return await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+        }
+
+        public const string Jwt = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjYzMDcyMDAwMDAsImlhdCI6MCwic3ViIjo5NjY4MTc4MDd9.fypbvH3XmFQsB5PBbazsGEzGcOiFLzPosBebADfHZnk";
+
+        public static async STT.Task<string> Test2()
+        {
+            DVV.Client = new DHIPC();
+
+            //DVR.HttpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
+            DVR.HttpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            DVR.HttpClient.DefaultRequestHeaders.Add("Name", "Authorization");
+            DVR.HttpClient.DefaultRequestHeaders.Add("Type", "HttpHeader");
+            DVR.HttpClient.DefaultRequestHeaders.Add("jwt", "Bearer" + Jwt);
+
+            var data = new { Name = "Authorization", Type = "HttpHeader", Value = "Bearer " + Jwt };
+
+            SNHHRM httpResponseMessage = await DVR.HttpClient.GetAsync("2017-06-30/users?username=AlyaVega").ConfigureAwait(false);
+
+            httpResponseMessage.EnsureSuccessStatusCode();
+
+            return await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -463,6 +525,39 @@ namespace Duolingo
             DHEC.Conrol(DVV.LoginData);
 
             Core.GetUserDataAsync(DVV.LoginData).GetAwaiter().GetResult();
+        }
+    }
+
+    #endregion
+
+    #region Exception
+
+    /// <summary>
+    /// Duolingo exception class. 
+    /// </summary>
+    public class Exception : SE
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        public Exception(string message) : base(message)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Duolingo arguemnt exception class. 
+    /// </summary>
+    public class ArgumentException : SAOORE
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="paramName"></param>
+        public ArgumentException(string paramName, string message) : base(paramName, message)
+        {
         }
     }
 

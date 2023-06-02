@@ -10,9 +10,9 @@
 [![FuGet-Version](https://www.fuget.org/packages/Duolingo/badge.svg)](https://www.fuget.org/packages/Duolingo)
 [![NuGet](https://img.shields.io/nuget/dt/Duolingo)](https://www.nuget.org/api/v2/package/Duolingo)
 
-[![.NET](https://github.com/Taiizor/Duolingo/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Taiizor/Duolingo/actions/workflows/dotnet.yml)
-[![CodeQL](https://github.com/Taiizor/Duolingo/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Taiizor/Duolingo/actions/workflows/codeql-analysis.yml)
-[![.NET Desktop](https://github.com/Taiizor/Duolingo/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Taiizor/Duolingo/actions/workflows/dotnet-desktop.yml)
+[![.NET](https://github.com/Aquilatery/Duolingo/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Aquilatery/Duolingo/actions/workflows/dotnet.yml)
+[![CodeQL](https://github.com/Aquilatery/Duolingo/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Aquilatery/Duolingo/actions/workflows/codeql-analysis.yml)
+[![.NET Desktop](https://github.com/Aquilatery/Duolingo/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/Aquilatery/Duolingo/actions/workflows/dotnet-desktop.yml)
 
 [![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
 
@@ -35,8 +35,8 @@ Gracias a estas personas maravillosas ([emoji clave](https://allcontributors.org
 			</sub>
 		</a>
 		<br/>
-		<a href="https://github.com/Taiizor/Duolingo/commits?author=Taiizor" title="Código">💻</a>
-		<a href="https://www.taiizor.com" title="Ideas & Planificación, Comentarios">🤔</a>
+		<a href="https://github.com/Aquilatery/Duolingo/commits?author=Taiizor" title="Código">💻</a>
+		<a href="https://www.vegalya.com" title="Ideas & Planificación, Comentarios">🤔</a>
 	</td>
   </tr>
 </table>
